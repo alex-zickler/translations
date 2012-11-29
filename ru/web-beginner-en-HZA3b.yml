@@ -4,15 +4,15 @@ classification: :lesson
 created_at: 2012-08-10 03:47:17.000000000 Z
 domain: :freestyle
 down_votes: 399
-entry: Fundamentals of HTML
+entry: Базовые знания об HTML
 feedback_total: 146
 is_project: false
 language_id: !ruby/object:Moped::BSON::ObjectId
   raw_data: !binary |-
     TyFOXyFuzxlcRMGX
 level: :beginner
-locale: en
-name: HTML Basics
+locale: ru
+name: Основы языка разметки HTML
 num_exercises: 13
 num_published_exercises: 13
 num_published_sections: 3
@@ -44,27 +44,27 @@ sections:
 - !ruby/hash:Moped::BSON::Document
   created_at: 2012-08-10 03:47:17.000000000 Z
   default_view: :console_and_editor
-  entry: Here you'll learn HTML—the language websites are made from.
+  entry: В этом уроке вы узнаете о том, как построены сайты в сети интернет.
   exercises:
   - _id: !ruby/object:Moped::BSON::ObjectId
       raw_data: !binary |-
         UCSERcWnJQACBpNf
     created_at: 2012-08-10 03:47:17.000000000 Z
     default_code: ''
-    entry: ! 'Every webpage you look at is written in a language called HTML. You
-      can think of HTML as the skeleton that gives every webpage structure. In this
-      course, we''ll use HTML to add paragraphs, headings, images and links to a webpage.
+    entry: ! 'Каждая веб-страница в сети интернет - создана с помощью языка, называемом HTML. You
+      can think of HTML as the skeleton that gives every webpage structure. В этом уроке мы узнаем о том,
+      как добавить на веб-страницу параграфы, заголовки, изображения и ссылки.
 
 
-      In the editor to the right, there''s a tab called `test.html`. This is the file
-      we''ll type our HTML into. See the code with the `<>`s? That''s HTML! Like any
-      language, it has its own special **syntax** (rules for communicating).
+      В редакторе, котрый расположен справа, есть закладка с именем `test.html`. В этом редакторе мы будем
+      создавать нашу веб-страницу. Видите код расположеный в `<>`? Это и есть HTML! Все что находится между `<>`
+      - называется **тег**. Как и любой другой язык программирования, у него тоже есть свой **синтаксис** 
+      (система условных обозначений).
 
 
-      When we press Run, the results tab will act like an Internet **browser** (*e.g.*
-      Chrome, Firefox, Internet Explorer). A browser''s job is to transform the code
-      in `test.html` into a recognizable webpage! It knows how to lay out the page
-      by following the HTML syntax.'
+      Когда Вы нажмете на кнопку Run, закладка результата будет вести себя как интернет **браузер** (*например*
+      Chrome, Firefox, или Internet Explorer). Задача браузер - превратить код в `test.html` в понятную человеку
+      веб-страницу! Он знает как создать разметку на основании синтаксиса HTML'
     expect_error: false
     feedback_stats:
       instructional_text_issue: 15
@@ -75,11 +75,10 @@ sections:
       other: 2
     from_console: false
     hint: ''
-    instruction: ! "1. To the right, we have a `test.html` file. \n2. Change the text
-      on line 2 to anything you like!\n3. There is also a 'Results' tab. It acts just
-      like a browser does.\n4. Hit Run, and you'll see how the `test.html` file would
-      look in a browser. Did you see that? The `<strong></strong>` tags made our text
-      bold!"
+    instruction: ! "1. Справа у нас есть редактор файла `test.html`. \n2. Поместите любой текст на строке 2
+    to anything you like!\n3. Также Вы можете увидеть закладку 'Results'. Она похожа на браузер.\n4. Нажмите Run,
+    и Вы увидите как будет смотреться `test.html` в веб-брузере. Вы видите нашу страницу? Эдемент разметки 
+    `<strong></strong>` сделал наш текст жирным!"
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
