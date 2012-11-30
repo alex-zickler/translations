@@ -273,40 +273,42 @@ sections:
         UGEG6KV/6AACANEX
     created_at: 2012-09-25 01:20:40.000000000 Z
     default_code: ''
-    entry: ! "Sometimes we don't just want a method to print something to the console,
-      but we actually want that method to hand us (or another method!) back a value.
-      For that, we use `return`.\n\nThe `return` keyword handles the method's **output**.
-      If we write the method `cube`, like so:\n\n    def cube(n)\n      return n **
-      3\n    end\n\nthe method won't print anything out, but it will hand us back
-      the result of our computation. Calling `cube(4)` will result in the value `64`.\n\nWe
-      can use values returned by methods just like any other values: we can assign
-      them to variables, perform computations with them, and more. Using the `cube`
-      method above, we could tell Ruby:\n\n    output = cube(3)\n    output += 11\n
-      \   puts output\n\nand it would print `38`, which is the result of `3 ** 3 +
-      11`."
+    entry: ! "有时候我们不只是想要一个方法向控制台打印一些东西，
+      我们实际上想要某个方法返回给我们（或者返回给另一个方法！）一个值。
+      这个时候，我们就用到了`return`。\n\n`return`关键字用来处理方法的 **输出** 。
+      如果我们写一个这样的方法`cube`：\n\n
+      def cube(n)\n
+        return n ** 3\n
+      end\n\n
+      这个方法不会打印任何东西，但是它会返回计算结果。调用`cube(4)`会得到数值`64`。\n\n
+      我们可以像使用其它值那样来使用方法返回的值：我们可以将它们赋给变量，用它们进行计算等等。
+      使用上面的`cube`方法，我们可以向Ruby输入：\n\n
+      output = cube(3)\n
+      output += 11\n
+      \   puts output\n\n
+      然后它会输出`38`，那是`3 ** 3 + 11`的结果。"
     expect_error: false
     feedback_stats:
       instructional_text_issue: 1
       total: 1
     from_console: false
-    hint: ! "Remember, you define a method like this:\n\n    def method_name(optional
-      parameters)\n      # Do something!\n      # Maybe return a value\n    end"
-    instruction: Write a method, `add`, that takes two numbers and `return`s the sum
-      of those numbers.
+    hint: ! "记住，你应该这样定义一个方法：\n\n
+      def method_name(形式参数)\n
+        # 要做的事！\n
+        # 可能要返回一个值\n
+      end"
+    instruction: 编写一个方法`add`，接受两个数字作为输入，然后返回它们的和。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Let's Learn Return
+    name: 让我们来学习返回
     solution_code: ''
     solution_entry: ''
     tabs: []
-    test_functions: ! "begin\n  add(1,1)\nrescue NameError\n  return \"Did you define
-      a method called add?\"\nrescue ArgumentError\n  return \"Make sure your add
-      method expects two arguments.\"\nend\n\nif exception.kind_of? SyntaxError\n
-      \ return \"It looks like your syntax isn't quite right. Check the Hint if you
-      need help.\"\nend\n\noxnard = (1..100).to_a\nmontalvo = (101..200).to_a\n\nfor
-      a in oxnard\n  for b in montalvo\n    if add(a,b) != a + b\n      return \"It
-      looks like your add method doesn't return the result of adding two numbers together.\"\n
+    test_functions: ! "begin\n  add(1,1)\nrescue NameError\n  return \"你定义了一个名叫add的方法吗？\"\n
+      rescue ArgumentError\n  return \"确保你的add方法接受两个实际参数。\"\nend\n\nif exception.kind_of? SyntaxError\n
+      \ return \"你的语法貌似不大正确。如需帮助可查看提示。\"\nend\n\noxnard = (1..100).to_a\nmontalvo = (101..200).to_a\n\nfor
+      a in oxnard\n  for b in montalvo\n    if add(a,b) != a + b\n      return \"似乎你的add方法并不是返回两个数字的和。\"\n
       \   end\n  end\nend\n\nreturn true"
     updated_at: 2012-10-03 20:26:14.000000000 Z
     view: console_and_editor
