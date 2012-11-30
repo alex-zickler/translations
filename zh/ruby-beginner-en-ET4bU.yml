@@ -235,19 +235,19 @@ sections:
       raw_data: !binary |-
         UGD3OxCV7AACACa8
     created_at: 2012-09-25 00:13:47.000000000 Z
-    default_code: ! "def what_up(greeting, *bros)\n  bros.each { |bro| puts \"#{greeting},
-      #{bro}!\" }\nend\n \nwhat_up(\"What up\", \"Justin\", \"Ben\", \"Kevin Sorbo\")"
-    entry: ! "Speaking of not knowing what to expect: your methods not only don't
-      know what arguments they're going to get ahead of time, but occasionally, they
-      don't even know *how many* arguments there will be.\n\nLet's say you have a
-      method, `friend`, that `puts` the argument it receives from the user. It might
-      look something like this:\n\n    def friend(name):\n      puts \"My friend is
-      \" + name + \".\"\n    end\n\nThis is great for just one friend, but what if
-      you want to print out the user's friend**s**, without knowing how many friend
-      names the user will put in ahead of time?\n\nThe solution: **splat arguments**.
-      Splat arguments are arguments preceded by a `*`, which signals to Ruby: \"Hey
-      Ruby, I don't know *how* many arguments there are about to be, but it could
-      be more than one.\""
+    default_code: ! "def what_up(greeting, *bros)\n  bros.each { |bro| puts \"#{greeting}，
+      #{bro}？\" }\nend\n \nwhat_up(\"别来无恙啊\", \"张三\", \"李四\", \"王五\")"
+    entry: ! "俗话说世事难料：你的方法不仅无法事先知道会获得什么样的实际参数，
+      甚至有时候连实际参数 **有多少个** 也不知道。\n\n
+      比方说你有一个`friend`方法，使用`puts`将用户传入的实际参数输出。
+      它可能是这样的：\n\n
+      def friend(name):\n
+        puts \"我的朋友是\" + name + \"。\"\n
+      end\n\n
+      如果只有一个朋友的话，这个方法是很好的。但是假如你想打印出 **多个** 朋友，
+      而且事先还不知道用户会输入多少个朋友的名字，那该怎么办呢？\n\n
+      解决办法是： **可变参数** 。可变参数就是实际参数前面加一个`*`，告诉Ruby说：
+      “Ruby你好，我不知道到时候会有 **多少个** 实际参数，不过很可能不止一个。”"
     expect_error: false
     feedback_stats:
       instructional_text_issue: 3
@@ -257,12 +257,11 @@ sections:
       correctness_test_issue: 1
     from_console: false
     hint: ''
-    instruction: Click Run to test out the example in the editor. Feel free to play
-      around and call `what_up` on as many `bros` as you like!
+    instruction: 单击Run来看看编辑器中的示例代码会输出什么结果。你可以自己试一试：随意使用不同的`bros`参数来调用`what_up`！
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Splat!
+    name: 可变参数！
     solution_code: ''
     solution_entry: ''
     tabs: []
@@ -274,40 +273,42 @@ sections:
         UGEG6KV/6AACANEX
     created_at: 2012-09-25 01:20:40.000000000 Z
     default_code: ''
-    entry: ! "Sometimes we don't just want a method to print something to the console,
-      but we actually want that method to hand us (or another method!) back a value.
-      For that, we use `return`.\n\nThe `return` keyword handles the method's **output**.
-      If we write the method `cube`, like so:\n\n    def cube(n)\n      return n **
-      3\n    end\n\nthe method won't print anything out, but it will hand us back
-      the result of our computation. Calling `cube(4)` will result in the value `64`.\n\nWe
-      can use values returned by methods just like any other values: we can assign
-      them to variables, perform computations with them, and more. Using the `cube`
-      method above, we could tell Ruby:\n\n    output = cube(3)\n    output += 11\n
-      \   puts output\n\nand it would print `38`, which is the result of `3 ** 3 +
-      11`."
+    entry: ! "有时候我们不只是想要一个方法向控制台打印一些东西，
+      我们实际上想要某个方法返回给我们（或者返回给另一个方法！）一个值。
+      这个时候，我们就用到了`return`。\n\n`return`关键字用来处理方法的 **输出** 。
+      如果我们写一个这样的方法`cube`：\n\n
+      def cube(n)\n
+        return n ** 3\n
+      end\n\n
+      这个方法不会打印任何东西，但是它会返回计算结果。调用`cube(4)`会得到数值`64`。\n\n
+      我们可以像使用其它值那样来使用方法返回的值：我们可以将它们赋给变量，用它们进行计算等等。
+      使用上面的`cube`方法，我们可以向Ruby输入：\n\n
+      output = cube(3)\n
+      output += 11\n
+      \   puts output\n\n
+      然后它会输出`38`，那是`3 ** 3 + 11`的结果。"
     expect_error: false
     feedback_stats:
       instructional_text_issue: 1
       total: 1
     from_console: false
-    hint: ! "Remember, you define a method like this:\n\n    def method_name(optional
-      parameters)\n      # Do something!\n      # Maybe return a value\n    end"
-    instruction: Write a method, `add`, that takes two numbers and `return`s the sum
-      of those numbers.
+    hint: ! "记住，你应该这样定义一个方法：\n\n
+      def method_name(形式参数)\n
+        # 要做的事！\n
+        # 可能要返回一个值\n
+      end"
+    instruction: 编写一个方法`add`，接受两个数字作为输入，然后返回它们的和。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Let's Learn Return
+    name: 让我们来学习返回
     solution_code: ''
     solution_entry: ''
     tabs: []
-    test_functions: ! "begin\n  add(1,1)\nrescue NameError\n  return \"Did you define
-      a method called add?\"\nrescue ArgumentError\n  return \"Make sure your add
-      method expects two arguments.\"\nend\n\nif exception.kind_of? SyntaxError\n
-      \ return \"It looks like your syntax isn't quite right. Check the Hint if you
-      need help.\"\nend\n\noxnard = (1..100).to_a\nmontalvo = (101..200).to_a\n\nfor
-      a in oxnard\n  for b in montalvo\n    if add(a,b) != a + b\n      return \"It
-      looks like your add method doesn't return the result of adding two numbers together.\"\n
+    test_functions: ! "begin\n  add(1,1)\nrescue NameError\n  return \"你定义了一个名叫add的方法吗？\"\n
+      rescue ArgumentError\n  return \"确保你的add方法接受两个实际参数。\"\nend\n\nif exception.kind_of? SyntaxError\n
+      \ return \"你的语法貌似不大正确。如需帮助可查看提示。\"\nend\n\noxnard = (1..100).to_a\nmontalvo = (101..200).to_a\n\nfor
+      a in oxnard\n  for b in montalvo\n    if add(a,b) != a + b\n      return \"似乎你的add方法并不是返回两个数字的和。\"\n
       \   end\n  end\nend\n\nreturn true"
     updated_at: 2012-10-03 20:26:14.000000000 Z
     view: console_and_editor
@@ -316,8 +317,7 @@ sections:
         UGD3PetxiwACACx/
     created_at: 2012-09-25 00:13:49.000000000 Z
     default_code: ''
-    entry: You won't become a Master Method Maker 'til you make a mess of methods.
-      (Say *that* three times fast.)
+    entry: 不闻不若闻之，闻之不若见之，见之不若知之，知之不若行之。（快速朗读 *这句话* 三遍。）
     expect_error: false
     feedback_stats:
       correctness_test_issue: 5
@@ -326,38 +326,34 @@ sections:
       other: 1
       instructional_text_issue: 1
     from_console: false
-    hint: ! "Method syntax looks like this:\n\n    def method_name(optional arguments)\n
-      \     # Do something!\n    end"
-    instruction: ! 'Define two methods in the editor:
+    hint: ! "方法的语法是这样的：\n\n
+    def method_name(形式参数)\n
+      \     # Do something!\n
+    end"
+    instruction: ! '在编辑器中定义两个方法：
 
 
-      1. A `greeter` method that takes a single string parameter, `name`, and returns
-      a string greeting that person. (Make sure to use `return` and don''t use `print`
-      or `puts`.)
+      1. `greeter`方法，接受一个代表人名的字符串作为形式参数`name`，然后返回向这个人问候的字符串。
+      （确保使用`return`，而不要使用`print`或者`puts`。）
 
-      2. A `by_three?` method that takes a single integer parameter, `number`, and
-      returns `true` if that number is evenly divisible by three and `false` if not.
-      Remember, it''s a Ruby best practice to end method names that produce boolean
-      values with a question mark.'
+      2. `by_three?`方法，接受一个整数形式参数`number`，如果该整数能被3整除，则返回`true`，否则返回`false`。
+      记住，如果方法的返回类型是布尔型，那么方法名应以问号结束，这是Ruby最佳实践。'
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Practice Makes Perfect
+    name: 熟能生巧
     solution_code: ''
     solution_entry: ''
     tabs: []
-    test_functions: ! "begin\n  greeter(\"Eric\")\nrescue NameError\n  return \"Did
-      you define your greeter method?\"\nend\n\nbegin\n  by_three?(12)\nrescue NameError\n
-      \ return \"Did you define your by_three? method?\"\nend\n\neric = greeter(\"Eric\")\nunless
-      eric.include? \"Eric\"\n  return \"It looks like your greeter method doesn't
-      include the person's name in its output.\"\nend\n\nif code.scan(\"print\").length
-      > 0 || code.scan(\"puts\").length > 0\n  return \"It looks like your greeter
-      method prints to the console instead of using return.\"\nend\n\noxnard = Array.new(20)
+    test_functions: ! "begin\n  greeter(\"Eric\")\nrescue NameError\n  return
+      \"你定义了greeter方法吗？\"\nend\n\nbegin\n  by_three?(12)\nrescue NameError\n
+      \ return \"你定义了by_three?方法吗？\"\nend\n\neric = greeter(\"Eric\")\nunless
+      eric.include? \"Eric\"\n  return \"貌似你的greeter方法并没有输出正确的人名。\"\nend\n\nif code.scan(\"print\").length
+      > 0 || code.scan(\"puts\").length > 0\n  return \"貌似你的greeter方法将输出打印到了控制台，
+      而不是使用return将其返回。\"\nend\n\noxnard = Array.new(20)
       { |i| i * 3 }\nmontalvo = Array.new(20) { |i| i * 3 + 1 }\n\nfor num in oxnard\n
-      \ unless by_three?(num)\n    return \"It looks like your by_three? method doesn't
-      return true for all numbers evenly divisible by three.\"\n  end\nend\n\nfor
-      num in montalvo\n  if by_three?(num)\n    return \"It looks like your by_three?
-      method doesn't return false for all numbers not evenly divisible by three.\"\n
+      \ unless by_three?(num)\n    return \"貌似你的by_three?方法并不是对于所有能被3整除的数都返回true。\"\n  end\nend\n\nfor
+      num in montalvo\n  if by_three?(num)\n    return \"貌似你的by_three?方法并不是对于所有不能被3整除的数都返回false。\"\n
       \ end\nend\n\nreturn true"
     updated_at: 2012-11-14 08:21:43.919000000 Z
     view: console_and_editor
@@ -366,7 +362,7 @@ sections:
   language_id: !ruby/object:Moped::BSON::ObjectId
     raw_data: !binary |-
       TyFOXyFuzxlcRMGV
-  name: More Complex Methods
+  name: 复杂一点的方法
   num_forum_answers: 21
   num_forum_questions: 10
   published: true
