@@ -317,8 +317,7 @@ sections:
         UGD3PetxiwACACx/
     created_at: 2012-09-25 00:13:49.000000000 Z
     default_code: ''
-    entry: You won't become a Master Method Maker 'til you make a mess of methods.
-      (Say *that* three times fast.)
+    entry: 不闻不若闻之，闻之不若见之，见之不若知之，知之不若行之。（快速朗读 *这句话* 三遍。）
     expect_error: false
     feedback_stats:
       correctness_test_issue: 5
@@ -327,38 +326,34 @@ sections:
       other: 1
       instructional_text_issue: 1
     from_console: false
-    hint: ! "Method syntax looks like this:\n\n    def method_name(optional arguments)\n
-      \     # Do something!\n    end"
-    instruction: ! 'Define two methods in the editor:
+    hint: ! "方法的语法是这样的：\n\n
+    def method_name(形式参数)\n
+      \     # Do something!\n
+    end"
+    instruction: ! '在编辑器中定义两个方法：
 
 
-      1. A `greeter` method that takes a single string parameter, `name`, and returns
-      a string greeting that person. (Make sure to use `return` and don''t use `print`
-      or `puts`.)
+      1. `greeter`方法，接受一个代表人名的字符串作为形式参数`name`，然后返回向这个人问候的字符串。
+      （确保使用`return`，而不要使用`print`或者`puts`。）
 
-      2. A `by_three?` method that takes a single integer parameter, `number`, and
-      returns `true` if that number is evenly divisible by three and `false` if not.
-      Remember, it''s a Ruby best practice to end method names that produce boolean
-      values with a question mark.'
+      2. `by_three?`方法，接受一个整数形式参数`number`，如果该整数能被3整除，则返回`true`，否则返回`false`。
+      记住，如果方法的返回类型是布尔型，那么方法名应以问号结束，这是Ruby最佳实践。'
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Practice Makes Perfect
+    name: 熟能生巧
     solution_code: ''
     solution_entry: ''
     tabs: []
-    test_functions: ! "begin\n  greeter(\"Eric\")\nrescue NameError\n  return \"Did
-      you define your greeter method?\"\nend\n\nbegin\n  by_three?(12)\nrescue NameError\n
-      \ return \"Did you define your by_three? method?\"\nend\n\neric = greeter(\"Eric\")\nunless
-      eric.include? \"Eric\"\n  return \"It looks like your greeter method doesn't
-      include the person's name in its output.\"\nend\n\nif code.scan(\"print\").length
-      > 0 || code.scan(\"puts\").length > 0\n  return \"It looks like your greeter
-      method prints to the console instead of using return.\"\nend\n\noxnard = Array.new(20)
+    test_functions: ! "begin\n  greeter(\"Eric\")\nrescue NameError\n  return
+      \"你定义了greeter方法吗？\"\nend\n\nbegin\n  by_three?(12)\nrescue NameError\n
+      \ return \"你定义了by_three?方法吗？\"\nend\n\neric = greeter(\"Eric\")\nunless
+      eric.include? \"Eric\"\n  return \"貌似你的greeter方法并没有输出正确的人名。\"\nend\n\nif code.scan(\"print\").length
+      > 0 || code.scan(\"puts\").length > 0\n  return \"貌似你的greeter方法将输出打印到了控制台，
+      而不是使用return将其返回。\"\nend\n\noxnard = Array.new(20)
       { |i| i * 3 }\nmontalvo = Array.new(20) { |i| i * 3 + 1 }\n\nfor num in oxnard\n
-      \ unless by_three?(num)\n    return \"It looks like your by_three? method doesn't
-      return true for all numbers evenly divisible by three.\"\n  end\nend\n\nfor
-      num in montalvo\n  if by_three?(num)\n    return \"It looks like your by_three?
-      method doesn't return false for all numbers not evenly divisible by three.\"\n
+      \ unless by_three?(num)\n    return \"貌似你的by_three?方法并不是对于所有能被3整除的数都返回true。\"\n  end\nend\n\nfor
+      num in montalvo\n  if by_three?(num)\n    return \"貌似你的by_three?方法并不是对于所有不能被3整除的数都返回false。\"\n
       \ end\nend\n\nreturn true"
     updated_at: 2012-11-14 08:21:43.919000000 Z
     view: console_and_editor
@@ -367,7 +362,7 @@ sections:
   language_id: !ruby/object:Moped::BSON::ObjectId
     raw_data: !binary |-
       TyFOXyFuzxlcRMGV
-  name: More Complex Methods
+  name: 复杂一点的方法
   num_forum_answers: 21
   num_forum_questions: 10
   published: true
