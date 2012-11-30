@@ -11,7 +11,7 @@ language_id: !ruby/object:Moped::BSON::ObjectId
   raw_data: !binary |-
     TyFOXyFuzxlcRMGV
 level: :beginner
-locale: en
+locale: zh
 name: 循环和迭代器
 num_exercises: 18
 num_published_exercises: 18
