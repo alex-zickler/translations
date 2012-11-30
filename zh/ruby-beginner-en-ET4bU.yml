@@ -235,19 +235,19 @@ sections:
       raw_data: !binary |-
         UGD3OxCV7AACACa8
     created_at: 2012-09-25 00:13:47.000000000 Z
-    default_code: ! "def what_up(greeting, *bros)\n  bros.each { |bro| puts \"#{greeting},
-      #{bro}!\" }\nend\n \nwhat_up(\"What up\", \"Justin\", \"Ben\", \"Kevin Sorbo\")"
-    entry: ! "Speaking of not knowing what to expect: your methods not only don't
-      know what arguments they're going to get ahead of time, but occasionally, they
-      don't even know *how many* arguments there will be.\n\nLet's say you have a
-      method, `friend`, that `puts` the argument it receives from the user. It might
-      look something like this:\n\n    def friend(name):\n      puts \"My friend is
-      \" + name + \".\"\n    end\n\nThis is great for just one friend, but what if
-      you want to print out the user's friend**s**, without knowing how many friend
-      names the user will put in ahead of time?\n\nThe solution: **splat arguments**.
-      Splat arguments are arguments preceded by a `*`, which signals to Ruby: \"Hey
-      Ruby, I don't know *how* many arguments there are about to be, but it could
-      be more than one.\""
+    default_code: ! "def what_up(greeting, *bros)\n  bros.each { |bro| puts \"#{greeting}，
+      #{bro}？\" }\nend\n \nwhat_up(\"别来无恙啊\", \"张三\", \"李四\", \"王五\")"
+    entry: ! "俗话说世事难料：你的方法不仅无法事先知道会获得什么样的实际参数，
+      甚至有时候连实际参数 **有多少个** 也不知道。\n\n
+      比方说你有一个`friend`方法，使用`puts`将用户传入的实际参数输出。
+      它可能是这样的：\n\n
+      def friend(name):\n
+        puts \"我的朋友是\" + name + \"。\"\n
+      end\n\n
+      如果只有一个朋友的话，这个方法是很好的。但是假如你想打印出 **多个** 朋友，
+      而且事先还不知道用户会输入多少个朋友的名字，那该怎么办呢？\n\n
+      解决办法是： **可变参数** 。可变参数就是实际参数前面加一个`*`，告诉Ruby说：
+      “Ruby你好，我不知道到时候会有 **多少个** 实际参数，不过很可能不止一个。”"
     expect_error: false
     feedback_stats:
       instructional_text_issue: 3
@@ -257,12 +257,11 @@ sections:
       correctness_test_issue: 1
     from_console: false
     hint: ''
-    instruction: Click Run to test out the example in the editor. Feel free to play
-      around and call `what_up` on as many `bros` as you like!
+    instruction: 单击Run来看看编辑器中的示例代码会输出什么结果。你可以自己试一试：随意使用不同的`bros`参数来调用`what_up`！
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Splat!
+    name: 可变参数！
     solution_code: ''
     solution_entry: ''
     tabs: []
