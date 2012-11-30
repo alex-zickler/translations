@@ -4,7 +4,7 @@ classification: :lesson
 created_at: 2012-09-19 20:38:44.000000000 Z
 domain: :freestyle
 down_votes: 160
-entry: 循环和迭代器的使用， Ruby可以为您快捷简单地自动完成重复的任务。
+entry: 使用循环和迭代器， Ruby可以为您快捷简单地自动完成重复的任务。
 feedback_total: 191
 is_project: false
 language_id: !ruby/object:Moped::BSON::ObjectId
