@@ -448,42 +448,42 @@ sections:
       raw_data: !binary |-
         UGNpjwEyRwACAOFc
     created_at: 2012-09-26 20:46:07.000000000 Z
-    default_code: ! "# The block, {|i| puts i}, is passed the current\n# array item
-      each time it is evaluated. This block\n# prints the item. \n[1, 2, 3, 4, 5].each
-      { |i| puts i }\n\n# This block prints the number 5 for each item.\n# (It chooses
-      to ignore the passed item, which is allowed.)\n[1, 2, 3, 4, 5].each { |i| puts
-      5 }"
-    entry: ! 'A method can take a block as a parameter. That''s what `.each` has been
-      doing this whole time: taking a block as a parameter and doing stuff with it!
-      You just didn''t notice because we didn''t use the optional parentheses. We
-      are sneaky.
+    default_code: ! "# {|i| puts i}块在每次执行的时候获得当前数组项，\n
+      # 然后将该数组项打印出来。\n
+      [1, 2, 3, 4, 5].each { |i| puts i }\n\n
+      # 这个块为每个数组项打印数字5。\n
+      # （它忽略了数组项本身，这是允许的。）\n
+      [1, 2, 3, 4, 5].each { |i| puts 5 }"
+    entry: ! '块可以作为方法的参数。事实上最近的这些例子里面`.each`方法正是这样的：
+      接受块作为参数，然后使用它来做各种事情！
+      你之所以没有注意到，是因为我们调用`.each`方法的时候没有用括弧将参数括起来，而括弧是可选的。
+      我们这样做似乎有点不厚道。
 
 
-      Passing a block to a method is a great way of **abstracting** certain tasks
-      from the method and defining those tasks when we call the method. Abstraction
-      is an important idea in computer science, and you can think of it as meaning
-      "making something simpler." Imagine if when you wanted to house hunt, you had
-      to say, "Honey, let''s go look at configurations of concrete, plywood, and vinyl
-      siding." That''d be crazy! Just like saying "house" simplifies listing its components,
-      using a block to define the task you want the method (like `.each`) to do simplifies
-      the task at hand.'
+      把块作为方法的参数是一种非常好的做法，因为这样我们可以将方法中的某些任务 **抽象** 出来，
+      然后在调用方法的时候再定义这些任务。抽象是计算机科学的一个重要思想，
+      你可以认为它的含义就是“使一些事情变得简单”。举个例子，看房子的人一般会看户型满意不满意、
+      价格能不能接受、开发商的口碑怎么样、合同的收房时间和违约细则以及贷款多长时间能贷下来等等。
+      结果有一天，你对你的朋友说：“喂，我要去看户型、价格、开发商的口碑、合同和贷款。”那你的朋友肯定听迷糊了！
+      我们说，“看房”这个行为本身就包括上述内容，为了简化，你只需要说：“我要去看房”，就可以了。
+      同样的道理，将一个方法要执行的任务抽象出来用块表示（就像`.each`方法），也起到了简化的作用。'
     expect_error: false
     feedback_stats: {}
     from_console: false
-    hint: ! "Instead of printing\n\n    5 5 5 5 5\n\nwith each `5` on its own line,
-      we want to print\n\n    5 10 15 20 25\n\nwith each number on its own line."
-    instruction: Currently, the second `.each` will print out `5` five times (since
-      it will print `5` for each item in the array, and there are five items). Modify
-      the block so it will print each item in the array *multiplied by* five.
+    hint: ! "原始代码打印\n\n    5 5 5 5 5\n\n
+      每行有一个`5`，
+      我们想要它打印\n\n    5 10 15 20 25\n\n
+      每行有一个数字。"
+    instruction: 目前，第二个`.each`方法会打印出五次数字`5`（因为它会为每个数组项打印`5`，
+      而一共有五个数组项）。修改块内的代码，使得它打印每个数组项 *乘以* 5的值。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Using Code Blocks
+    name: 使用代码块
     tabs: []
-    test_functions: ! "if exception.kind_of? SyntaxError\n  return \"Your syntax doesn't
-      look quite right. Check the Hint if you need help.\"\nend\n\nfor num in [5,
-      10, 15, 20, 25]\n  unless prints.include? num.to_s\n    return \"It looks like
-      your block isn't printing each element in the array multiplied by 5.\"\n  end\nend\n\nreturn
+    test_functions: ! "if exception.kind_of? SyntaxError\n  return \"你的语法貌似不大正确。
+      如需帮助可查看提示。\"\nend\n\nfor num in [5,
+      10, 15, 20, 25]\n  unless prints.include? num.to_s\n    return \"貌似你的代码块并不打印每个数组项乘以5的值。\"\n  end\nend\n\nreturn
       true"
     updated_at: 2012-09-28 18:48:26.000000000 Z
     view: console_and_editor
@@ -492,7 +492,7 @@ sections:
   language_id: !ruby/object:Moped::BSON::ObjectId
     raw_data: !binary |-
       TyFOXyFuzxlcRMGV
-  name: The Return of Blocks
+  name: 再说说块这个东西
   num_forum_answers: 1
   num_forum_questions: 1
   published: true
