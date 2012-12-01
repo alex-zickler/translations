@@ -409,42 +409,37 @@ sections:
       raw_data: !binary |-
         UGD3t+txiwACAC/X
     created_at: 2012-09-25 00:15:51.000000000 Z
-    default_code: ! "# method that capitalizes a word\ndef capitalize(string) \n  puts
-      \"#{string[0].upcase}#{string[1..-1]}\"\nend\n\ncapitalize(\"ryan\") # prints
-      \"Ryan\"\ncapitalize(\"jane\") # prints \"Jane\"\n\n# block that capitalizes
-      each string in the array\n[\"ryan\", \"jane\"].each {|string| puts \"#{string[0].upcase}#{string[1..-1]}\"}
-      # prints \"Ryan\", then \"Jane\""
-    entry: ! 'There are some differences between blocks and methods, however.
+    default_code: ! "# 该方法将单词首字母变为大写\ndef capitalize(string) \n  puts
+      \"#{string[0].upcase}#{string[1..-1]}\"\nend\n\ncapitalize(\"ryan\") # 打印
+      \"Ryan\"\ncapitalize(\"jane\") # 打印 \"Jane\"\n\n# 将数组中每个字符串首字母变为大写的块\n
+      [\"ryan\", \"jane\"].each {|string| puts \"#{string[0].upcase}#{string[1..-1]}\"}
+      # 先打印 \"Ryan\"，然后打印 \"Jane\""
+    entry: ! '不过，块和方法还是有区别的。
 
 
-      Check out the code in the editor. The `capitalize` method capitalizes a word
-      (see the Hint for how this is done), and we can continually invoke the `capitalize`
-      method by name. We can `capitalize("matz")`, `capitalize("eduardo")`, or any
-      string we like to our hearts'' content.
+      阅读编辑器中的代码。`capitalize`方法将一个单词的首字母变为大写（查看提示以了解其原理），
+      而且我们可以通过方法名不断地调用`capitalize`方法。我们可以尽情地调用`capitalize("matz")`、
+      `capitalize("eduardo")`或者将其它任何字符串的首字母变成大写。
 
 
-      However, the block that we define (following `.each`) will only be called *once*,
-      and in the context of the array that we are iterating over. It appears just
-      long enough to do some work for `each`, then vanishes into the night.'
+      相比之下，我们定义的块（`.each`后面）则只能调用 *一次* ，而且只运行在数组迭代上下文环境中。
+      它看起来要在`each`里面执行相当长的操作。'
     expect_error: false
     feedback_stats:
       instructional_text_issue: 1
       total: 1
     from_console: false
-    hint: ! 'The bracket notation is treating each string like an array of characters;
-      you can find details about this in the [Ruby documentation](http://www.ruby-doc.org/core-1.9.3/String.html#method-i-5B-5D).
+    hint: ! '字符串后面加方括号实际上是将字符串当作字符数组来处理。
+      关于这一点的详细说明见[Ruby文档](http://www.ruby-doc.org/core-1.9.3/String.html#method-i-5B-5D)。
 
 
-      `string[0]` refers to the first character in the string; `string[1..-1]` refers
-      to the range of the second through final characters. Therefore, the method prints
-      out the capitalized version of the first character and prints the second through
-      final characters as-is.'
-    instruction: Make sense? Click Run to see the magical marriage of methods and
-      blocks.
+      `string[0]`代表字符串的第一个字符；`string[1..-1]`代表由第2个字符到最后一个字符组成的新的字符串。
+      因此，该方法先打印出字符串首字符的大写，然后原样打印其后剩余的字符。'
+    instruction: 我讲得够清楚吗？单击Run来看看方法和块的表现吧。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: How Blocks Differ from Methods
+    name: 块与方法的区别
     tabs: []
     test_functions: return true
     updated_at: 2012-10-01 02:55:35.000000000 Z
