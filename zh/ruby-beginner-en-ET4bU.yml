@@ -375,24 +375,20 @@ sections:
 - !ruby/hash:Moped::BSON::Document
   created_at: 2012-09-25 00:14:39.000000000 Z
   default_view: console_and_editor
-  entry: We learned a bit about blocks in lesson 3, "Loops & Iterators." Now we'll
-    dive into the details.
+  entry: 我们在第3课“循环和迭代器”中学到了一些关于块的内容。现在我们要深入了解了。
   exercises:
   - _id: !ruby/object:Moped::BSON::ObjectId
       raw_data: !binary |-
         UGD3byd/ewACADCk
     created_at: 2012-09-25 00:14:39.000000000 Z
-    default_code: ! "1.times do\n  puts \"I'm a code block!\"\nend\n\n1.times { puts
-      \"As am I!\" }"
-    entry: ! 'Most methods that you''ve worked with have defined names that either
-      you or someone else gave them (*i.e.* [array].sort(), "string".downcase(), and
-      so on). You can think of blocks as a way of creating methods that don''t have
-      a name. (These are similar to anonymous functions in JavaScript or lambdas in
-      Python.)
+    default_code: ! "1.times do\n  puts \"我是一个代码块！\"\nend\n\n1.times { puts
+      \"我也是！\" }"
+    entry: ! '你碰到过的大多数方法都有一个定义好的名字，不管是你定义的还是其他人定义的
+      （ *例如* [array].sort()、"string".downcase()等等）。
+      你可以把块看作是没有名字的方法。（这类似于JavaScript的匿名函数和Python的lambda函数。）
 
 
-      Blocks can be defined with either the keywords `do` and `end` or with curly
-      braces (`{}`).'
+      块可以使用关键字`do`和`end`来定义，也可以使用大括号（`{}`）来定义。'
     expect_error: false
     feedback_stats:
       instructional_text_issue: 2
@@ -400,12 +396,11 @@ sections:
       other: 1
     from_console: false
     hint: ''
-    instruction: Check out the examples in the editor. Look familiar? Click Run to
-      see the blocks execute their code.
+    instruction: 阅读编辑器中的示例代码。很熟悉是吗？单击Run并观察这些块的执行结果。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Blocks Are Like Nameless Methods
+    name: 块就像没有名字的方法
     tabs: []
     test_functions: return true
     updated_at: 2012-10-14 09:30:41.100000000 Z
