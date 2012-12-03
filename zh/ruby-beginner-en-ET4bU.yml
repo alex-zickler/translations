@@ -779,7 +779,7 @@ sections:
         UGD4ND3Y+QACADWz
     created_at: 2012-09-25 00:17:56.000000000 Z
     default_code: fruits = ["orange", "apple", "banana", "pear", "grapes"]
-    entry: Finally, let's review what we learned about sorting.
+    entry: 最后，我们复习一下排序。
     expect_error: false
     feedback_stats:
       instructional_text_issue: 4
@@ -788,24 +788,21 @@ sections:
       positive_feedback: 1
       other: 2
     from_console: false
-    hint: ! "We prefer the combined comparison operator. Remember, to sort alphabetically,
-      we did this:\n\n    books.sort! { |firstBook, secondBook| firstBook <=> secondBook
+    hint: ! "我们更喜欢使用通用比较操作符。记住，按字母升序排序的代码是这样的：
+      \n\n    books.sort! { |firstBook, secondBook| firstBook <=> secondBook
       }"
-    instruction: Use `.sort!` to sort the `fruits` array in *descending* (that is,
-      reverse) alphabetical order. You can use the combined comparison operator or
-      an `if`/`elsif`/`else` statement.
+    instruction: 使用`.sort!`方法将`fruits`数组按字母 *降序* 排序。
+      你可以用通用比较操作符或者`if`/`elsif`/`else`语句来实现。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Sorting
+    name: 排序
     tabs: []
-    test_functions: ! "if exception.kind_of? SyntaxError\n  return \"Your syntax doesn't
-      look quite right. Check the Hint if you need help!\"\nend\n\nif code.scan(\"<=>\").length
-      == 0 && code.scan(\"else\").length == 0\n  return \"Make sure to use either
-      <=> or else/elsif/else to compare and sort your fruits.\"\nend\n\nunless fruits
-      == [\"pear\", \"orange\", \"grapes\", \"banana\", \"apple\"]\n  return \"It
-      looks like you didn't sort the fruits array in descending order. Did you remember
-      to use .sort! instead of .sort ?\"\nend\n\nreturn true"
+    test_functions: ! "if exception.kind_of? SyntaxError\n  return \"你的语法貌似不大正确。
+      如需帮助可查看提示！\"\nend\n\nif code.scan(\"<=>\").length
+      == 0 && code.scan(\"else\").length == 0\n  return \"确保使用<=>或者else/elsif/else来比较和排序fruits数组。\"\nend\n\nunless fruits
+      == [\"pear\", \"orange\", \"grapes\", \"banana\", \"apple\"]\n  return \"
+      貌似你没有将fruits数组按降序排序。请记住要使用.sort!方法，而不是.sort方法。\"\nend\n\nreturn true"
     updated_at: 2012-11-08 02:18:45.197000000 Z
     view: console_and_editor
   feedback_total: 13
@@ -813,7 +810,7 @@ sections:
   language_id: !ruby/object:Moped::BSON::ObjectId
     raw_data: !binary |-
       TyFOXyFuzxlcRMGV
-  name: Review
+  name: 复习
   num_forum_answers: 18
   num_forum_questions: 7
   published: true
