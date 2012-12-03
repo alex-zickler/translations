@@ -547,46 +547,40 @@ sections:
       raw_data: !binary |-
         UGD38KV/6AACADN1
     created_at: 2012-09-25 00:16:48.000000000 Z
-    default_code: ! '# library sorting code
+    default_code: ! '# 图书馆使用的排序代码
 
       books = ["Charlie and the Chocolate Factory", "War and Peace", "Utopia", "A
       Brief History of Time", "A Wrinkle in Time"]
 
 
-      # How might we sort! the books in alphabetical order? (Hint, hint)
+      # 我们该怎样将书本按照字母顺序排序（sort!）？（提示，提示）
 
 
 '
-    entry: ! 'If we were to hand you five books and ask you to put them, sorted by
-      title, on a shelf, how would you do it?
+    entry: ! '假设我们给你五本书，然后要你按书名顺序摆在书架上，你会怎么做？
 
 
-      Most sorting algorithms assume we are sorting an array of items, which involves
-      comparing any two items in the array and deciding which should come first.
+      大多数排序算法是针对数组项进行排序的，通过比较数组中的两个项来决定哪个放在前面。
 
 
-      For our books example, if for any pair we always chose the book whose title
-      came first in the alphabet, we could devise a strategy for sorting. These "strategies"
-      are the sorting algorithms mentioned in the previous example. Our job is to
-      decide how to compare two items in the list, and let Ruby decide which strategy
-      to use.'
+      对于我们摆书的例子，如果我们在比较两本书的时候总是优先选择书名英文字母靠前的那本书，
+      那么我们就可以设计出一种排序策略。这些“策略”就是前面提到的排序算法。
+      我们要做的是确定如何比较数组中的两个项，然后决定Ruby的排序策略。'
     expect_error: false
     feedback_stats: {}
     from_console: false
-    hint: ! 'We already gave you a hint! If you didn''t get it, here''s a freebie:
-      use `.sort!`'
-    instruction: What Ruby method could we call on `books` in order to sort the list
-      of books alphabetically? Try it out in the editor.
+    hint: ! '我们已经给提示了！如果你还不清楚，那么再给一个提示：使用`.sort!`方法。'
+    instruction: 我们可以用什么样的Ruby方法来对`books`数组调用以达到按字母顺序排序的目的？
+      在编辑器中试一下吧。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Foundations
+    name: 基础
     tabs: []
-    test_functions: ! "if code.scan(\".sort!\").length == 0\n  return \"Make sure
-      to call .sort! on the books array.\"\nend\n\nunless books == [\"A Brief History
+    test_functions: ! "if code.scan(\".sort!\").length == 0\n  return \"确保对books数组调用.sort!方法。
+      \"\nend\n\nunless books == [\"A Brief History
       of Time\", \"A Wrinkle in Time\", \"Charlie and the Chocolate Factory\", \"Utopia\",
-      \"War and Peace\"]\n  return \"It looks like you didn't sort the books array.
-      Did you remember to use .sort! instead of .sort ?\"\nend\n\nreturn true"
+      \"War and Peace\"]\n  return \"貌似你没有对books数组排序。请记住要使用.sort!方法，而不是.sort方法。\"\nend\n\nreturn true"
     updated_at: 2012-10-02 15:10:10.000000000 Z
     view: console_and_editor
   - _id: !ruby/object:Moped::BSON::ObjectId
