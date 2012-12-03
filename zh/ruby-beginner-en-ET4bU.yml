@@ -163,7 +163,7 @@ sections:
       total: 3
     from_console: false
     hint: ''
-    instruction: 我们在右边的编辑器里编写了一个函数`array_of_10`。在第5行（line 5）调用它！
+    instruction: 我们在右边的编辑器里编写了一个函数`array_of_10`。在第5行调用它！
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
@@ -629,20 +629,18 @@ sections:
       "Utopia", "A Brief History of Time", "A Wrinkle in Time"]
 
 
-      # To sort our books in ascending order, in-place
+      # 将我们的书本按升序排序
 
       books.sort! { |firstBook, secondBook| firstBook <=> secondBook }
 
 
-      # Sort your books in descending order, in-place below
+      # 将你的书本按降序排序
 
 
 '
-    entry: ! "What if we wanted to sort the books by title, but from Z – A, or **descending
-      order**? It appears that Ruby's sort method only works for A – Z, or **ascending
-      order**. \n\nThe `sort` method assumes by default that you want to sort in ascending
-      order, but it accepts a block as an optional argument that allows you, the programmer,
-      to specify how two items should be compared."
+    entry: ! "如果我们想按照书名从Z到A排序，即 **降序** 排序，怎么做？
+      似乎Ruby的排序方法只能从A到Z排序，即 **升序** 排序。
+      \n\n`sort`方法默认排序方式是升序排序，但是它可接受一个块作为参数，指定两个项的比较方式。"
     expect_error: false
     feedback_stats:
       correctness_test_issue: 2
@@ -650,25 +648,23 @@ sections:
       instructional_text_issue: 2
       other: 1
     from_console: false
-    hint: ! "Note that you don't *have* to use the combined comparison operator. This
-      code also works:\n\n    books.sort do |firstBook, secondBook| \n      if firstBook
-      < secondBook  # firstBook before second alphabetically\n        return -1\n
-      \     else if firstBook > secondBook   # firstBook after second\n        return
-      1\n      else   # firstBook and secondBook the same\n        return 0\n      end\n
+    hint: ! "其实并不是 *非要* 使用通用比较操作符的。下面的代码也一样可以：
+      \n\n    books.sort do |firstBook, secondBook| \n      if firstBook
+      < secondBook  # 按字母顺序firstBook比secondBook靠前\n        return -1\n
+      \     else if firstBook > secondBook   # firstBook比secondBook靠后\n        return
+      1\n      else   # firstBook和secondBook位置相同\n        return 0\n      end\n
       \   end"
-    instruction: Sort your `books` in descending order on line 8. Use the example
-      of sorting in ascending order on line 4 as a guide.
+    instruction: 在第8行将`books`按降序排序。参考第4行的升序排序例子。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Getting Technical
+    name: 来点有技术含量的
     tabs: []
-    test_functions: ! "if exception.kind_of? SyntaxError\n  return \"Your syntax doesn't
-      look quite right. Use the ascending sort example as a guide!\"\nend\n\nunless
+    test_functions: ! "if exception.kind_of? SyntaxError\n  return \"你的语法貌似不大正确。
+      参考升序排序的例子！\"\nend\n\nunless
       books == [\"War and Peace\", \"Utopia\", \"Charlie and the Chocolate Factory\",
-      \"A Wrinkle in Time\", \"A Brief History of Time\"]\n  return \"It looks like
-      you didn't sort the books array in descending order. Did you remember to use
-      .sort! instead of .sort ?\"\nend\n\nreturn true"
+      \"A Wrinkle in Time\", \"A Brief History of Time\"]\n  return \"
+      貌似你没有对books数组进行降序排序。请记住要使用.sort!方法，而不是.sort方法。\"\nend\n\nreturn true"
     updated_at: 2012-11-05 18:28:44.356000000 Z
     view: console_and_editor
   feedback_total: 7
@@ -676,7 +672,7 @@ sections:
   language_id: !ruby/object:Moped::BSON::ObjectId
     raw_data: !binary |-
       TyFOXyFuzxlcRMGV
-  name: Sorting With Blocks
+  name: 用块来排序
   num_forum_answers: 6
   num_forum_questions: 4
   published: true
