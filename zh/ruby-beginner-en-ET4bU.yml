@@ -88,7 +88,7 @@ sections:
     default_code: ! "___ puts_1_to_10\n  (1..10).each { |i| puts i }\n___\n\nputs_1_to_10
       # 不用管这一句。我们很快会在后面解释！"
     entry: ! "我们使用`def`（\"`def`ine\"的缩写）关键字来定义方法。方法包含三个部分：\n
-      \n1. **首部** ，包含`def`关键字、方法名称和方法的 **实际参数** （我们在下一节将讲到实际参数）。
+      \n1. **首部** ，包含`def`关键字、方法名称和方法的 **参数** （我们在下一节将讲到参数）。
       \n2. **主体** ，描述方法执行内容的代码块。按照惯例，主体缩进两个空格（与`for`、`if`、`elsif`和`else`等语句一样）。
       \n3. 方法以`end`关键字结束。\n\n
       下面是一个简单函数`welcome`的语法示例，功能是向控制台打印\"欢迎来到Ruby的世界！\"：\n\n
@@ -163,7 +163,7 @@ sections:
       total: 3
     from_console: false
     hint: ''
-    instruction: 我们在右边的编辑器里编写了一个函数`array_of_10`。在第5行（line 5）调用它！
+    instruction: 我们在右边的编辑器里编写了一个函数`array_of_10`。在第5行调用它！
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
@@ -201,24 +201,27 @@ sections:
         UGD3Lj3Y+QACACkz
     created_at: 2012-09-25 00:13:34.000000000 Z
     default_code: ! "def cubertino(n)\n  puts n ** 3\nend\n\n"
-    entry: ! "如果一个方法带有 **实际参数** ，我们说它 **接受** 或者 **要求** 这些实际参数。
+    entry: ! "如果一个方法带有 **参数** ，我们说它 **接受** 或者 **要求** 这些参数。
       我们可能会定义一个函数`square`，像这样：\n\n
       def square(n)\n
       \     puts n ** 2\n
       end\n\n
       然后这样调用它：\n\n
       square(12)\n    # ==> 打印\"144\"\n\n
+      方法的参数分为 **实际参数** 和 **形式参数** 。
       **实际参数** 是在你 **调用** 方法时放在方法名后面括弧里面的代码段，
       而 **形式参数** 则是在你 **定义** 方法时放在方法名后面括弧里面的一个名称。
       举个例子，当定义上面的`square`方法时，我们给了它一个形式参数`n`（表示\"number\"）；
       在调用它时，我们则将实际参数`12`传给了它。\n\n
-      你可以把形式参数看作是实际参数的昵称，因为它事先并不知道它到底会得到什么样的实际参数。\n\n
-      Ruby的括弧通常是可选的，不过为了提高可读性，最好将形式参数和实际参数用括弧括起来。"
+      你可以把形式参数看作是实际参数的昵称，因为它事先并不知道它到底会得到什么样的实际参数。
+      习惯上，我们将形式参数简称为 **形参** ，将实际参数简称为 **实参** 。
+      在没有特别指定的时候，这两者也可泛称为 **参数** 。\n\n
+      Ruby的括弧通常是可选的，不过为了提高可读性，最好将参数用括弧括起来。"
     expect_error: false
     feedback_stats: {}
     from_console: false
     hint: ''
-    instruction: 在编辑器中调用`cubertino`方法，向它传入实际参数`8`。
+    instruction: 在编辑器中调用`cubertino`方法，向它传入参数`8`。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
@@ -227,7 +230,7 @@ sections:
     solution_entry: ''
     tabs: []
     test_functions: ! "if code.scan(\"cubertino\").length < 2\n  return \"确保调用
-      cubertino并传入数字8作为实际参数。\"\nend\n\nunless
+      cubertino并传入数字8作为参数。\"\nend\n\nunless
       prints.include? \"512\"\n  return \"貌似你没有向控制台打印8 ** 3的值。\"\nend\n\nreturn true"
     updated_at: 2012-09-27 22:23:39.000000000 Z
     view: console_and_editor
@@ -237,17 +240,17 @@ sections:
     created_at: 2012-09-25 00:13:47.000000000 Z
     default_code: ! "def what_up(greeting, *bros)\n  bros.each { |bro| puts \"#{greeting}，
       #{bro}？\" }\nend\n \nwhat_up(\"别来无恙啊\", \"张三\", \"李四\", \"王五\")"
-    entry: ! "俗话说世事难料：你的方法不仅无法事先知道会获得什么样的实际参数，
-      甚至有时候连实际参数 **有多少个** 也不知道。\n\n
-      比方说你有一个`friend`方法，使用`puts`将用户传入的实际参数输出。
+    entry: ! "俗话说世事难料：你的方法不仅无法事先知道会获得什么样的参数，
+      甚至有时候连参数 **有多少个** 也不知道。\n\n
+      比方说你有一个`friend`方法，使用`puts`将用户传入的参数输出。
       它可能是这样的：\n\n
       def friend(name):\n
         puts \"我的朋友是\" + name + \"。\"\n
       end\n\n
       如果只有一个朋友的话，这个方法是很好的。但是假如你想打印出 **多个** 朋友，
       而且事先还不知道用户会输入多少个朋友的名字，那该怎么办呢？\n\n
-      解决办法是： **可变参数** 。可变参数就是实际参数前面加一个`*`，告诉Ruby说：
-      “Ruby你好，我不知道到时候会有 **多少个** 实际参数，不过很可能不止一个。”"
+      解决办法是： **可变参数** 。可变参数就是在定义方法时在形式参数前面加一个`*`，告诉Ruby说：
+      “Ruby你好，我不知道在调用你的时候会有 **多少个** 实际参数传递给你，不过很可能不止一个。”"
     expect_error: false
     feedback_stats:
       instructional_text_issue: 3
@@ -293,7 +296,7 @@ sections:
       total: 1
     from_console: false
     hint: ! "记住，你应该这样定义一个方法：\n\n
-      def method_name(形式参数)\n
+      def method_name(可选参数)\n
         # 要做的事！\n
         # 可能要返回一个值\n
       end"
@@ -306,7 +309,8 @@ sections:
     solution_entry: ''
     tabs: []
     test_functions: ! "begin\n  add(1,1)\nrescue NameError\n  return \"你定义了一个名叫add的方法吗？\"\n
-      rescue ArgumentError\n  return \"确保你的add方法接受两个实际参数。\"\nend\n\nif exception.kind_of? SyntaxError\n
+      rescue ArgumentError\n  return \"确保你的add方法接受两个参数。\"
+      \nend\n\nif exception.kind_of? SyntaxError\n
       \ return \"你的语法貌似不大正确。如需帮助可查看提示。\"\nend\n\noxnard = (1..100).to_a\nmontalvo = (101..200).to_a\n\nfor
       a in oxnard\n  for b in montalvo\n    if add(a,b) != a + b\n      return \"似乎你的add方法并不是返回两个数字的和。\"\n
       \   end\n  end\nend\n\nreturn true"
@@ -327,16 +331,16 @@ sections:
       instructional_text_issue: 1
     from_console: false
     hint: ! "方法的语法是这样的：\n\n
-    def method_name(形式参数)\n
+    def method_name(可选参数)\n
       \     # Do something!\n
     end"
     instruction: ! '在编辑器中定义两个方法：
 
 
-      1. `greeter`方法，接受一个代表人名的字符串作为形式参数`name`，然后返回向这个人问候的字符串。
+      1. `greeter`方法，接受一个代表人名的字符串作为参数`name`，然后返回向这个人问候的字符串。
       （确保使用`return`，而不要使用`print`或者`puts`。）
 
-      2. `by_three?`方法，接受一个整数形式参数`number`，如果该整数能被3整除，则返回`true`，否则返回`false`。
+      2. `by_three?`方法，接受一个整数参数`number`，如果该整数能被3整除，则返回`true`，否则返回`false`。
       记住，如果方法的返回类型是布尔型，那么方法名应以问号结束，这是Ruby最佳实践。'
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
@@ -375,24 +379,20 @@ sections:
 - !ruby/hash:Moped::BSON::Document
   created_at: 2012-09-25 00:14:39.000000000 Z
   default_view: console_and_editor
-  entry: We learned a bit about blocks in lesson 3, "Loops & Iterators." Now we'll
-    dive into the details.
+  entry: 我们在第3课“循环和迭代器”中学到了一些关于块的内容。现在我们要深入了解了。
   exercises:
   - _id: !ruby/object:Moped::BSON::ObjectId
       raw_data: !binary |-
         UGD3byd/ewACADCk
     created_at: 2012-09-25 00:14:39.000000000 Z
-    default_code: ! "1.times do\n  puts \"I'm a code block!\"\nend\n\n1.times { puts
-      \"As am I!\" }"
-    entry: ! 'Most methods that you''ve worked with have defined names that either
-      you or someone else gave them (*i.e.* [array].sort(), "string".downcase(), and
-      so on). You can think of blocks as a way of creating methods that don''t have
-      a name. (These are similar to anonymous functions in JavaScript or lambdas in
-      Python.)
+    default_code: ! "1.times do\n  puts \"我是一个代码块！\"\nend\n\n1.times { puts
+      \"我也是！\" }"
+    entry: ! '你碰到过的大多数方法都有一个定义好的名字，不管是你定义的还是其他人定义的
+      （ *例如* [array].sort()、"string".downcase()等等）。
+      你可以把块看作是没有名字的方法。（这类似于JavaScript的匿名函数和Python的lambda函数。）
 
 
-      Blocks can be defined with either the keywords `do` and `end` or with curly
-      braces (`{}`).'
+      块可以使用关键字`do`和`end`来定义，也可以使用大括号（`{}`）来定义。'
     expect_error: false
     feedback_stats:
       instructional_text_issue: 2
@@ -400,12 +400,11 @@ sections:
       other: 1
     from_console: false
     hint: ''
-    instruction: Check out the examples in the editor. Look familiar? Click Run to
-      see the blocks execute their code.
+    instruction: 阅读编辑器中的示例代码。很熟悉是吗？单击Run并观察这些块的执行结果。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Blocks Are Like Nameless Methods
+    name: 块就像没有名字的方法
     tabs: []
     test_functions: return true
     updated_at: 2012-10-14 09:30:41.100000000 Z
@@ -414,42 +413,37 @@ sections:
       raw_data: !binary |-
         UGD3t+txiwACAC/X
     created_at: 2012-09-25 00:15:51.000000000 Z
-    default_code: ! "# method that capitalizes a word\ndef capitalize(string) \n  puts
-      \"#{string[0].upcase}#{string[1..-1]}\"\nend\n\ncapitalize(\"ryan\") # prints
-      \"Ryan\"\ncapitalize(\"jane\") # prints \"Jane\"\n\n# block that capitalizes
-      each string in the array\n[\"ryan\", \"jane\"].each {|string| puts \"#{string[0].upcase}#{string[1..-1]}\"}
-      # prints \"Ryan\", then \"Jane\""
-    entry: ! 'There are some differences between blocks and methods, however.
+    default_code: ! "# 该方法将单词首字母变为大写\ndef capitalize(string) \n  puts
+      \"#{string[0].upcase}#{string[1..-1]}\"\nend\n\ncapitalize(\"ryan\") # 打印
+      \"Ryan\"\ncapitalize(\"jane\") # 打印 \"Jane\"\n\n# 将数组中每个字符串首字母变为大写的块\n
+      [\"ryan\", \"jane\"].each {|string| puts \"#{string[0].upcase}#{string[1..-1]}\"}
+      # 先打印 \"Ryan\"，然后打印 \"Jane\""
+    entry: ! '不过，块和方法还是有区别的。
 
 
-      Check out the code in the editor. The `capitalize` method capitalizes a word
-      (see the Hint for how this is done), and we can continually invoke the `capitalize`
-      method by name. We can `capitalize("matz")`, `capitalize("eduardo")`, or any
-      string we like to our hearts'' content.
+      阅读编辑器中的代码。`capitalize`方法将一个单词的首字母变为大写（查看提示以了解其原理），
+      而且我们可以通过方法名不断地调用`capitalize`方法。我们可以尽情地调用`capitalize("matz")`、
+      `capitalize("eduardo")`或者将其它任何字符串的首字母变成大写。
 
 
-      However, the block that we define (following `.each`) will only be called *once*,
-      and in the context of the array that we are iterating over. It appears just
-      long enough to do some work for `each`, then vanishes into the night.'
+      相比之下，我们定义的块（`.each`后面）则只能调用 *一次* ，而且只运行在数组迭代上下文环境中。
+      它看起来要在`each`里面执行相当长的操作。'
     expect_error: false
     feedback_stats:
       instructional_text_issue: 1
       total: 1
     from_console: false
-    hint: ! 'The bracket notation is treating each string like an array of characters;
-      you can find details about this in the [Ruby documentation](http://www.ruby-doc.org/core-1.9.3/String.html#method-i-5B-5D).
+    hint: ! '字符串后面加方括号实际上是将字符串当作字符数组来处理。
+      关于这一点的详细说明见[Ruby文档](http://www.ruby-doc.org/core-1.9.3/String.html#method-i-5B-5D)。
 
 
-      `string[0]` refers to the first character in the string; `string[1..-1]` refers
-      to the range of the second through final characters. Therefore, the method prints
-      out the capitalized version of the first character and prints the second through
-      final characters as-is.'
-    instruction: Make sense? Click Run to see the magical marriage of methods and
-      blocks.
+      `string[0]`代表字符串的第一个字符；`string[1..-1]`代表由第2个字符到最后一个字符组成的新的字符串。
+      因此，该方法先打印出字符串首字符的大写，然后原样打印其后剩余的字符。'
+    instruction: 我讲得够清楚吗？单击Run来看看方法和块的表现吧。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: How Blocks Differ from Methods
+    name: 块与方法的区别
     tabs: []
     test_functions: return true
     updated_at: 2012-10-01 02:55:35.000000000 Z
@@ -458,42 +452,42 @@ sections:
       raw_data: !binary |-
         UGNpjwEyRwACAOFc
     created_at: 2012-09-26 20:46:07.000000000 Z
-    default_code: ! "# The block, {|i| puts i}, is passed the current\n# array item
-      each time it is evaluated. This block\n# prints the item. \n[1, 2, 3, 4, 5].each
-      { |i| puts i }\n\n# This block prints the number 5 for each item.\n# (It chooses
-      to ignore the passed item, which is allowed.)\n[1, 2, 3, 4, 5].each { |i| puts
-      5 }"
-    entry: ! 'A method can take a block as a parameter. That''s what `.each` has been
-      doing this whole time: taking a block as a parameter and doing stuff with it!
-      You just didn''t notice because we didn''t use the optional parentheses. We
-      are sneaky.
+    default_code: ! "# {|i| puts i}块在每次执行的时候获得当前数组项，\n
+      # 然后将该数组项打印出来。\n
+      [1, 2, 3, 4, 5].each { |i| puts i }\n\n
+      # 这个块为每个数组项打印数字5。\n
+      # （它忽略了数组项本身，这是允许的。）\n
+      [1, 2, 3, 4, 5].each { |i| puts 5 }"
+    entry: ! '块可以作为方法的参数。事实上最近的这些例子里面`.each`方法正是这样的：
+      接受块作为参数，然后使用它来做各种事情！
+      你之所以没有注意到，是因为我们调用`.each`方法的时候没有用括弧将参数括起来，而括弧是可选的。
+      我们这样做似乎有点不厚道。
 
 
-      Passing a block to a method is a great way of **abstracting** certain tasks
-      from the method and defining those tasks when we call the method. Abstraction
-      is an important idea in computer science, and you can think of it as meaning
-      "making something simpler." Imagine if when you wanted to house hunt, you had
-      to say, "Honey, let''s go look at configurations of concrete, plywood, and vinyl
-      siding." That''d be crazy! Just like saying "house" simplifies listing its components,
-      using a block to define the task you want the method (like `.each`) to do simplifies
-      the task at hand.'
+      把块作为方法的参数是一种非常好的做法，因为这样我们可以将方法中的某些任务 **抽象** 出来，
+      然后在调用方法的时候再定义这些任务。抽象是计算机科学的一个重要思想，
+      你可以认为它的含义就是“使一些事情变得简单”。举个例子，看房子的人一般会看户型满意不满意、
+      价格能不能接受、开发商的口碑怎么样、合同的收房时间和违约细则以及贷款多长时间能贷下来等等。
+      结果有一天，你对你的朋友说：“喂，我要去看户型、价格、开发商的口碑、合同和贷款。”那你的朋友肯定听迷糊了！
+      我们说，“看房”这个行为本身就包括上述内容，为了简化，你只需要说：“我要去看房”，就可以了。
+      同样的道理，将一个方法要执行的任务抽象出来用块表示（就像`.each`方法），也起到了简化的作用。'
     expect_error: false
     feedback_stats: {}
     from_console: false
-    hint: ! "Instead of printing\n\n    5 5 5 5 5\n\nwith each `5` on its own line,
-      we want to print\n\n    5 10 15 20 25\n\nwith each number on its own line."
-    instruction: Currently, the second `.each` will print out `5` five times (since
-      it will print `5` for each item in the array, and there are five items). Modify
-      the block so it will print each item in the array *multiplied by* five.
+    hint: ! "原始代码打印\n\n    5 5 5 5 5\n\n
+      每行有一个`5`，
+      我们想要它打印\n\n    5 10 15 20 25\n\n
+      每行有一个数字。"
+    instruction: 目前，第二个`.each`方法会打印出五次数字`5`（因为它会为每个数组项打印`5`，
+      而一共有五个数组项）。修改块内的代码，使得它打印每个数组项 *乘以* 5的值。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Using Code Blocks
+    name: 使用代码块
     tabs: []
-    test_functions: ! "if exception.kind_of? SyntaxError\n  return \"Your syntax doesn't
-      look quite right. Check the Hint if you need help.\"\nend\n\nfor num in [5,
-      10, 15, 20, 25]\n  unless prints.include? num.to_s\n    return \"It looks like
-      your block isn't printing each element in the array multiplied by 5.\"\n  end\nend\n\nreturn
+    test_functions: ! "if exception.kind_of? SyntaxError\n  return \"你的语法貌似不大正确。
+      如需帮助可查看提示。\"\nend\n\nfor num in [5,
+      10, 15, 20, 25]\n  unless prints.include? num.to_s\n    return \"貌似你的代码块并不打印每个数组项乘以5的值。\"\n  end\nend\n\nreturn
       true"
     updated_at: 2012-09-28 18:48:26.000000000 Z
     view: console_and_editor
@@ -502,7 +496,7 @@ sections:
   language_id: !ruby/object:Moped::BSON::ObjectId
     raw_data: !binary |-
       TyFOXyFuzxlcRMGV
-  name: The Return of Blocks
+  name: 再说说块这个东西
   num_forum_answers: 1
   num_forum_questions: 1
   published: true
@@ -515,8 +509,7 @@ sections:
 - !ruby/hash:Moped::BSON::Document
   created_at: 2012-09-25 00:16:06.000000000 Z
   default_view: console_and_editor
-  entry: Now that we know more about blocks, we can use them to quickly and easily
-    sort large amounts if information in our programs.
+  entry: 既然我们对块有了进一步的了解，我们可以快速而简便地使用块来对程序中的大量信息进行排序。
   exercises:
   - _id: !ruby/object:Moped::BSON::ObjectId
       raw_data: !binary |-
@@ -525,85 +518,73 @@ sections:
     default_code: ! 'my_array = [3, 4, 8, 7, 1, 6, 5, 9, 2]
 
 
-      # Call the sort! method on my_array below.
+      # 调用上面my_array数组的sort!方法。
 
-      # my_array should then equal [1, 2, 3, 4, 5, 6, 7, 8, 9].
+      # 然后my_array数组就会变成[1, 2, 3, 4, 5, 6, 7, 8, 9]。
 
 
 '
-    entry: ! 'Sorting arrays is a very common problem in computer science, and is
-      well studied for that reason. There are many **algorithms**—well-defined sequences
-      of steps—each with its own trade-offs and advantages.
+    entry: ! '数组排序是计算机科学的一个非常常见的问题，因此被广泛研究。已经有很多的 **算法**
+      ——定义明确的一系列步骤——每种算法都有其各自的侧重点和优势。
 
 
-      Sorting algorithms can be a great introduction to computer science as a theoretical
-      discipline, but for now we''ll focus on how to use Ruby''s built-in sorting
-      library (which implements a few of these algorithms).'
+      排序算法可作为计算机科学理论学习的一个很好的起步，不过现在我们要重点关注如何使用Ruby的内建排序方法库（其中实现了一些排序算法）。'
     expect_error: false
     feedback_stats:
       other: 1
       total: 1
     from_console: false
-    hint: ! '`.sort` would sort a copy of `my_array`, while `.sort!` sorts `my_array`
-      in-place (that is, it destroys the original array and replaces it with the sorted
-      version).'
-    instruction: Use the `.sort!` method to sort the values in `my_array`. Magic,
-      isn't it?
+    hint: ! '`.sort`方法对`my_array`的副本排序，而`.sort!`方法则对`my_array`本身排序
+      （也就是说，它会破坏原有数组的数据，取而代之的是排序后的数据）。'
+    instruction: 使用`.sort!`方法对`my_array`排序。很神奇吧？
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Introduction to Sorting
+    name: 排序入门
     tabs: []
-    test_functions: ! "if code.scan(\".sort!\").length == 0\n  return \"Make sure
-      to call .sort! on my_array.\"\nend\n\nunless my_array == (1..9).to_a\n  return
-      \"It looks like you didn't sort my_array. Did you remember to use .sort! instead
-      of .sort ?\"\nend\n\nreturn true"
+    test_functions: ! "if code.scan(\".sort!\").length == 0\n  return \"确保对my_array调用了.sort!方法。
+      \"\nend\n\nunless my_array == (1..9).to_a\n  return
+      \"貌似你没有对my_array排序。请记住要使用.sort!方法，而不是.sort方法。\"\nend\n\nreturn true"
     updated_at: 2012-10-10 08:08:07.633000000 Z
     view: console_and_editor
   - _id: !ruby/object:Moped::BSON::ObjectId
       raw_data: !binary |-
         UGD38KV/6AACADN1
     created_at: 2012-09-25 00:16:48.000000000 Z
-    default_code: ! '# library sorting code
+    default_code: ! '# 图书馆使用的排序代码
 
       books = ["Charlie and the Chocolate Factory", "War and Peace", "Utopia", "A
       Brief History of Time", "A Wrinkle in Time"]
 
 
-      # How might we sort! the books in alphabetical order? (Hint, hint)
+      # 我们该怎样将书本按照字母顺序排序（sort!）？（提示，提示）
 
 
 '
-    entry: ! 'If we were to hand you five books and ask you to put them, sorted by
-      title, on a shelf, how would you do it?
+    entry: ! '假设我们给你五本书，然后要你按书名顺序摆在书架上，你会怎么做？
 
 
-      Most sorting algorithms assume we are sorting an array of items, which involves
-      comparing any two items in the array and deciding which should come first.
+      大多数排序算法是针对数组项进行排序的，通过比较数组中的两个项来决定哪个放在前面。
 
 
-      For our books example, if for any pair we always chose the book whose title
-      came first in the alphabet, we could devise a strategy for sorting. These "strategies"
-      are the sorting algorithms mentioned in the previous example. Our job is to
-      decide how to compare two items in the list, and let Ruby decide which strategy
-      to use.'
+      对于我们摆书的例子，如果我们在比较两本书的时候总是优先选择书名英文字母靠前的那本书，
+      那么我们就可以设计出一种排序策略。这些“策略”就是前面提到的排序算法。
+      我们要做的是确定如何比较数组中的两个项，然后决定Ruby的排序策略。'
     expect_error: false
     feedback_stats: {}
     from_console: false
-    hint: ! 'We already gave you a hint! If you didn''t get it, here''s a freebie:
-      use `.sort!`'
-    instruction: What Ruby method could we call on `books` in order to sort the list
-      of books alphabetically? Try it out in the editor.
+    hint: ! '我们已经给提示了！如果你还不清楚，那么再给一个提示：使用`.sort!`方法。'
+    instruction: 我们可以用什么样的Ruby方法来对`books`数组调用以达到按字母顺序排序的目的？
+      在编辑器中试一下吧。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Foundations
+    name: 基础
     tabs: []
-    test_functions: ! "if code.scan(\".sort!\").length == 0\n  return \"Make sure
-      to call .sort! on the books array.\"\nend\n\nunless books == [\"A Brief History
+    test_functions: ! "if code.scan(\".sort!\").length == 0\n  return \"确保对books数组调用.sort!方法。
+      \"\nend\n\nunless books == [\"A Brief History
       of Time\", \"A Wrinkle in Time\", \"Charlie and the Chocolate Factory\", \"Utopia\",
-      \"War and Peace\"]\n  return \"It looks like you didn't sort the books array.
-      Did you remember to use .sort! instead of .sort ?\"\nend\n\nreturn true"
+      \"War and Peace\"]\n  return \"貌似你没有对books数组排序。请记住要使用.sort!方法，而不是.sort方法。\"\nend\n\nreturn true"
     updated_at: 2012-10-02 15:10:10.000000000 Z
     view: console_and_editor
   - _id: !ruby/object:Moped::BSON::ObjectId
@@ -617,34 +598,30 @@ sections:
 
 
 '
-    entry: ! 'We can also use a new operator called the **combined comparison operator**
-      to compare two Ruby objects. The combined comparison operator looks like this:
-      `<=>`. It returns 0 if the first **operand** (item to be compared) equals the
-      second, 1 if first operand is *greater* than the second, and -1 if the first
-      operand is *less* than the second.
+    entry: ! '我们也可以用一个新的操作符来比较两个Ruby对象，这个操作符叫做 **通用比较操作符** `<=>`。
+      如果第一个 **操作数** （待比较的项）等于第二个，它返回0；
+      如果第一个操作数 *大于* 第二个，它返回1；
+      如果第一个操作数 *小于* 第二个，它返回-1。
 
 
-      A block that is passed into the `sort` method must return either 1, 0, -1. It
-      should return -1 if the first block parameter should come *before* the second,
-      1 if vice versa, and 0 if they are of equal weight, meaning one does not come
-      before the other (*i.e.* if two values are equal).'
+      传入`sort`方法的块必须返回1、0或者-1。如果块的第一个参数应该在第二个的 *前面* ，则返回-1；
+      反之则返回1；如果两者具有相同权重（即两者的值相同），则返回0，意味着它们所处位置相同。'
     expect_error: false
     feedback_stats:
       typo: 1
       total: 1
     from_console: false
     hint: ''
-    instruction: Use the combined comparison operator to compare `book_1` to `book_2`
-      (in that order). Before you click Run, what do you think the result will be?
+    instruction: 使用通用比较操作符比较`book_1`和`book_2`（`book_1`放在左边，`book_2`放在右边）。
+      在单击Run之前想一想，运行结果会是什么？
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: The Combined Comparison Operator
+    name: 通用比较操作符
     tabs: []
-    test_functions: ! "if code.scan(\"<=>\").length == 0\n  return \"Don't forget
-      to use the combined comparison operator in your code.\"\nend\n\nunless result
-      == 1\n  return \"It looks like your comparison doesn't return the correct value
-      (1). Did you remember to compare book_1 <=> book_2 (in that order)?\"\nend\n\nreturn
+    test_functions: ! "if code.scan(\"<=>\").length == 0\n  return \"别忘了在你的代码中使用通用比较操作符。
+      \"\nend\n\nunless result
+      == 1\n  return \"貌似你的比较结果不是返回正确的数值（1）。你是使用book_1 <=> book_2来比较吗？\"\nend\n\nreturn
       true"
     updated_at: 2012-10-25 01:05:41.351000000 Z
     view: console_and_editor
@@ -656,20 +633,18 @@ sections:
       "Utopia", "A Brief History of Time", "A Wrinkle in Time"]
 
 
-      # To sort our books in ascending order, in-place
+      # 将我们的书本按升序排序
 
       books.sort! { |firstBook, secondBook| firstBook <=> secondBook }
 
 
-      # Sort your books in descending order, in-place below
+      # 将你的书本按降序排序
 
 
 '
-    entry: ! "What if we wanted to sort the books by title, but from Z – A, or **descending
-      order**? It appears that Ruby's sort method only works for A – Z, or **ascending
-      order**. \n\nThe `sort` method assumes by default that you want to sort in ascending
-      order, but it accepts a block as an optional argument that allows you, the programmer,
-      to specify how two items should be compared."
+    entry: ! "如果我们想按照书名从Z到A排序，即 **降序** 排序，怎么做？
+      似乎Ruby的排序方法只能从A到Z排序，即 **升序** 排序。
+      \n\n`sort`方法默认排序方式是升序排序，但是它可接受一个块作为参数，指定两个项的比较方式。"
     expect_error: false
     feedback_stats:
       correctness_test_issue: 2
@@ -677,25 +652,23 @@ sections:
       instructional_text_issue: 2
       other: 1
     from_console: false
-    hint: ! "Note that you don't *have* to use the combined comparison operator. This
-      code also works:\n\n    books.sort do |firstBook, secondBook| \n      if firstBook
-      < secondBook  # firstBook before second alphabetically\n        return -1\n
-      \     else if firstBook > secondBook   # firstBook after second\n        return
-      1\n      else   # firstBook and secondBook the same\n        return 0\n      end\n
+    hint: ! "其实并不是 *非要* 使用通用比较操作符的。下面的代码也一样可以：
+      \n\n    books.sort do |firstBook, secondBook| \n      if firstBook
+      < secondBook  # 按字母顺序firstBook比secondBook靠前\n        return -1\n
+      \     else if firstBook > secondBook   # firstBook比secondBook靠后\n        return
+      1\n      else   # firstBook和secondBook位置相同\n        return 0\n      end\n
       \   end"
-    instruction: Sort your `books` in descending order on line 8. Use the example
-      of sorting in ascending order on line 4 as a guide.
+    instruction: 在第8行将`books`按降序排序。参考第4行的升序排序例子。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Getting Technical
+    name: 来点有技术含量的
     tabs: []
-    test_functions: ! "if exception.kind_of? SyntaxError\n  return \"Your syntax doesn't
-      look quite right. Use the ascending sort example as a guide!\"\nend\n\nunless
+    test_functions: ! "if exception.kind_of? SyntaxError\n  return \"你的语法貌似不大正确。
+      参考升序排序的例子！\"\nend\n\nunless
       books == [\"War and Peace\", \"Utopia\", \"Charlie and the Chocolate Factory\",
-      \"A Wrinkle in Time\", \"A Brief History of Time\"]\n  return \"It looks like
-      you didn't sort the books array in descending order. Did you remember to use
-      .sort! instead of .sort ?\"\nend\n\nreturn true"
+      \"A Wrinkle in Time\", \"A Brief History of Time\"]\n  return \"
+      貌似你没有对books数组进行降序排序。请记住要使用.sort!方法，而不是.sort方法。\"\nend\n\nreturn true"
     updated_at: 2012-11-05 18:28:44.356000000 Z
     view: console_and_editor
   feedback_total: 7
@@ -703,7 +676,7 @@ sections:
   language_id: !ruby/object:Moped::BSON::ObjectId
     raw_data: !binary |-
       TyFOXyFuzxlcRMGV
-  name: Sorting With Blocks
+  name: 用块来排序
   num_forum_answers: 6
   num_forum_questions: 4
   published: true
@@ -716,33 +689,31 @@ sections:
 - !ruby/hash:Moped::BSON::Document
   created_at: 2012-09-25 00:17:50.000000000 Z
   default_view: console_and_editor
-  entry: We covered a lot in this lesson! Let's do a little review.
+  entry: 我们这一课学了很多内容，让我们复习一下吧。
   exercises:
   - _id: !ruby/object:Moped::BSON::ObjectId
       raw_data: !binary |-
         UGD4MFbKXQACADAW
     created_at: 2012-09-25 00:17:52.000000000 Z
     default_code: ''
-    entry: Let's quickly review how to create a basic Ruby method.
+    entry: 让我们快速温习一下如何创建基本的Ruby方法。
     expect_error: false
     feedback_stats:
       correctness_test_issue: 1
       total: 2
       positive_feedback: 1
     from_console: false
-    hint: ! "Don't forget your method syntax:\n\n    def method_name(optional arguments)\n
+    hint: ! "别忘了方法的语法：\n\n    def method_name(可选参数)\n
       \     # Do something\n    end"
-    instruction: Create a method, `welcome`, that `puts` "Welcome to Ruby!" After
-      defining your method, call it.
+    instruction: 创建一个名为`welcome`的方法，使用`puts`向控制台输出"欢迎来到Ruby的世界！"。然后调用它。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Basic Methods
+    name: 基本方法
     tabs: []
-    test_functions: ! "begin\n  welcome\nrescue NameError\n  return \"Did you define
-      a method called welcome?\"\nend\n\nif prints.length == 0\n  return \"It looks
-      like you didn't print anything to the console with 'puts'. Did you remember
-      to call your method?\"\nend\n\nreturn true"
+    test_functions: ! "begin\n  welcome\nrescue NameError\n  return \"你定义了名为welcome的方法吗？
+      \"\nend\n\nif prints.length == 0\n  return \"貌似你没有使用'puts'向控制台打印任何东西。你是不是忘记调用你的方法了？
+      \"\nend\n\nreturn true"
     updated_at: 2012-10-03 20:43:28.000000000 Z
     view: console_and_editor
   - _id: !ruby/object:Moped::BSON::ObjectId
@@ -750,33 +721,32 @@ sections:
         UGD4MwP1pwACADY9
     created_at: 2012-09-25 00:17:55.000000000 Z
     default_code: ''
-    entry: Good! Now let's make our method a bit more complex by adding arguments
-      and a `return` statement.
+    entry: 非常好！现在，让我们把方法写得复杂一些，加入参数和`return`语句。
     expect_error: false
     feedback_stats:
       correctness_test_issue: 1
       total: 2
       positive_feedback: 1
     from_console: false
-    hint: ! "Your method should return something like\n\n    \"Welcome to Ruby, #{name}!\""
-    instruction: Make your `welcome` method accept a single string parameter, `name`.
-      Remove your `puts` statement and replace it with a `return` statement. Your
-      method should return a string containing the name it was passed as a parameter.
+    hint: ! "你的方法应该返回类似这样的内容：\n\n    \"欢迎来到Ruby的世界，#{name}！\""
+    instruction: 让你的`welcome`方法接受一个字符串参数`name`。
+      去掉`puts`语句，换成一个`return`语句。
+      你的方法应该返回一个字符串，该字符串包含传入的参数值。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: true
-    name: Methods With Arguments
+    name: 带参数的方法
     tabs: []
-    test_functions: ! "begin\n  welcome(\"Eric\")\nrescue NameError\n  return \"Did
-      you define a method called welcome?\"\nrescue ArgumentError\n  return \"Make
-      sure your method takes a single parameter.\"\nend\n\nif exception.kind_of? ArgumentError\n
-      \ return \"Make sure you pass your method a single string parameter when you
-      call it.\"\nend\n\neric = welcome(\"Eric\")\n\nif eric == nil\n  return \"Make
-      sure your method has a return statement.\"\nelsif !eric.include? \"Eric\"\n
-      \ return \"It looks like your welcome method doesn't include the person's name
-      in its output.\"\nend\n\nif code.scan(\"print\").length > 0 || code.scan(\"puts\").length
-      > 0\n  return \"It looks like your welcome method prints to the console instead
-      of using return.\"\nend\n\nreturn true"
+    test_functions: ! "begin\n  welcome(\"Eric\")\nrescue NameError\n  return \"
+      你定义了名为welcome的方法吗？\"\nrescue ArgumentError\n  return \"
+      确保你的方法接受一个参数。\"\nend\n\nif exception.kind_of? ArgumentError\n
+      \ return \"确保你调用你的方法时向它传入了一个字符串参数。
+      \"\nend\n\neric = welcome(\"Eric\")\n\nif eric == nil\n  return \"
+      确保你的方法有一个return语句。\"\nelsif !eric.include? \"Eric\"\n
+      \ return \"貌似你的welcome方法的返回值中并没有包含输入的字符串。
+      \"\nend\n\nif code.scan(\"print\").length > 0 || code.scan(\"puts\").length
+      > 0\n  return \"貌似你的welcome方法将输出打印到了控制台，
+      而不是使用return将其返回。\"\nend\n\nreturn true"
     updated_at: 2012-10-03 20:43:19.000000000 Z
     view: console_and_editor
   - _id: !ruby/object:Moped::BSON::ObjectId
@@ -787,26 +757,25 @@ sections:
 
 
       my_array.each '
-    entry: Let's go over what we learned about blocks.
+    entry: 让我们复习一下学过的关于块的内容。
     expect_error: false
     feedback_stats:
       positive_feedback: 1
       total: 1
     from_console: false
-    hint: ! "Remember, block syntax looks like this:\n\n    object.method { |placeholder|
+    hint: ! "记住，块的语法是这个样子的：\n\n    object.method { |placeholder|
       action }"
-    instruction: Add a block after the `each` method that squares each element in
-      the array and `puts` it to the console.
+    instruction: 在`each`方法后面添加一个块，这个块对数组的每个项求平方并使用`puts`向控制台打印结果。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Blocks
+    name: 块
     tabs: []
-    test_functions: ! "if exception.kind_of? SyntaxError\n  return \"It looks like
-      your syntax isn't quite right. Check the Hint if you need help!\"\nend\n\nfor
-      num in [1, 4, 9, 16, 25]\n  unless prints.include? num.to_s\n    return \"It
-      looks like your block doesn't print the square of each number in my_array to
-      the console using 'puts'.\"\n  end\nend\n\nreturn true"
+    test_functions: ! "if exception.kind_of? SyntaxError\n  return \"你的语法貌似不大正确。
+      如需帮助可查看提示！\"\nend\n\nfor
+      num in [1, 4, 9, 16, 25]\n  unless prints.include? num.to_s\n    return \"
+      貌似你的块并不使用'puts'向控制台打印my_array数组中每个数的平方。
+      \"\n  end\nend\n\nreturn true"
     updated_at: 2012-10-03 20:43:09.000000000 Z
     view: console_and_editor
   - _id: !ruby/object:Moped::BSON::ObjectId
@@ -814,7 +783,7 @@ sections:
         UGD4ND3Y+QACADWz
     created_at: 2012-09-25 00:17:56.000000000 Z
     default_code: fruits = ["orange", "apple", "banana", "pear", "grapes"]
-    entry: Finally, let's review what we learned about sorting.
+    entry: 最后，我们复习一下排序。
     expect_error: false
     feedback_stats:
       instructional_text_issue: 4
@@ -823,24 +792,21 @@ sections:
       positive_feedback: 1
       other: 2
     from_console: false
-    hint: ! "We prefer the combined comparison operator. Remember, to sort alphabetically,
-      we did this:\n\n    books.sort! { |firstBook, secondBook| firstBook <=> secondBook
+    hint: ! "我们更喜欢使用通用比较操作符。记住，按字母升序排序的代码是这样的：
+      \n\n    books.sort! { |firstBook, secondBook| firstBook <=> secondBook
       }"
-    instruction: Use `.sort!` to sort the `fruits` array in *descending* (that is,
-      reverse) alphabetical order. You can use the combined comparison operator or
-      an `if`/`elsif`/`else` statement.
+    instruction: 使用`.sort!`方法将`fruits`数组按字母 *降序* 排序。
+      你可以用通用比较操作符或者`if`/`elsif`/`else`语句来实现。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Sorting
+    name: 排序
     tabs: []
-    test_functions: ! "if exception.kind_of? SyntaxError\n  return \"Your syntax doesn't
-      look quite right. Check the Hint if you need help!\"\nend\n\nif code.scan(\"<=>\").length
-      == 0 && code.scan(\"else\").length == 0\n  return \"Make sure to use either
-      <=> or else/elsif/else to compare and sort your fruits.\"\nend\n\nunless fruits
-      == [\"pear\", \"orange\", \"grapes\", \"banana\", \"apple\"]\n  return \"It
-      looks like you didn't sort the fruits array in descending order. Did you remember
-      to use .sort! instead of .sort ?\"\nend\n\nreturn true"
+    test_functions: ! "if exception.kind_of? SyntaxError\n  return \"你的语法貌似不大正确。
+      如需帮助可查看提示！\"\nend\n\nif code.scan(\"<=>\").length
+      == 0 && code.scan(\"else\").length == 0\n  return \"确保使用<=>或者else/elsif/else来比较和排序fruits数组。\"\nend\n\nunless fruits
+      == [\"pear\", \"orange\", \"grapes\", \"banana\", \"apple\"]\n  return \"
+      貌似你没有将fruits数组按降序排序。请记住要使用.sort!方法，而不是.sort方法。\"\nend\n\nreturn true"
     updated_at: 2012-11-08 02:18:45.197000000 Z
     view: console_and_editor
   feedback_total: 13
@@ -848,7 +814,7 @@ sections:
   language_id: !ruby/object:Moped::BSON::ObjectId
     raw_data: !binary |-
       TyFOXyFuzxlcRMGV
-  name: Review
+  name: 复习
   num_forum_answers: 18
   num_forum_questions: 7
   published: true
