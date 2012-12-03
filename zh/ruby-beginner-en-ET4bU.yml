@@ -88,7 +88,7 @@ sections:
     default_code: ! "___ puts_1_to_10\n  (1..10).each { |i| puts i }\n___\n\nputs_1_to_10
       # 不用管这一句。我们很快会在后面解释！"
     entry: ! "我们使用`def`（\"`def`ine\"的缩写）关键字来定义方法。方法包含三个部分：\n
-      \n1. **首部** ，包含`def`关键字、方法名称和方法的 **实际参数** （我们在下一节将讲到实际参数）。
+      \n1. **首部** ，包含`def`关键字、方法名称和方法的 **参数** （我们在下一节将讲到参数）。
       \n2. **主体** ，描述方法执行内容的代码块。按照惯例，主体缩进两个空格（与`for`、`if`、`elsif`和`else`等语句一样）。
       \n3. 方法以`end`关键字结束。\n\n
       下面是一个简单函数`welcome`的语法示例，功能是向控制台打印\"欢迎来到Ruby的世界！\"：\n\n
@@ -201,24 +201,27 @@ sections:
         UGD3Lj3Y+QACACkz
     created_at: 2012-09-25 00:13:34.000000000 Z
     default_code: ! "def cubertino(n)\n  puts n ** 3\nend\n\n"
-    entry: ! "如果一个方法带有 **实际参数** ，我们说它 **接受** 或者 **要求** 这些实际参数。
+    entry: ! "如果一个方法带有 **参数** ，我们说它 **接受** 或者 **要求** 这些参数。
       我们可能会定义一个函数`square`，像这样：\n\n
       def square(n)\n
       \     puts n ** 2\n
       end\n\n
       然后这样调用它：\n\n
       square(12)\n    # ==> 打印\"144\"\n\n
+      方法的参数分为 **实际参数** 和 **形式参数** 。
       **实际参数** 是在你 **调用** 方法时放在方法名后面括弧里面的代码段，
       而 **形式参数** 则是在你 **定义** 方法时放在方法名后面括弧里面的一个名称。
       举个例子，当定义上面的`square`方法时，我们给了它一个形式参数`n`（表示\"number\"）；
       在调用它时，我们则将实际参数`12`传给了它。\n\n
-      你可以把形式参数看作是实际参数的昵称，因为它事先并不知道它到底会得到什么样的实际参数。\n\n
-      Ruby的括弧通常是可选的，不过为了提高可读性，最好将形式参数和实际参数用括弧括起来。"
+      你可以把形式参数看作是实际参数的昵称，因为它事先并不知道它到底会得到什么样的实际参数。
+      习惯上，我们将形式参数简称为 **形参** ，将实际参数简称为 **实参** 。
+      在没有特别指定的时候，这两者也可泛称为 **参数** 。\n\n
+      Ruby的括弧通常是可选的，不过为了提高可读性，最好将参数用括弧括起来。"
     expect_error: false
     feedback_stats: {}
     from_console: false
     hint: ''
-    instruction: 在编辑器中调用`cubertino`方法，向它传入实际参数`8`。
+    instruction: 在编辑器中调用`cubertino`方法，向它传入参数`8`。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
@@ -227,7 +230,7 @@ sections:
     solution_entry: ''
     tabs: []
     test_functions: ! "if code.scan(\"cubertino\").length < 2\n  return \"确保调用
-      cubertino并传入数字8作为实际参数。\"\nend\n\nunless
+      cubertino并传入数字8作为参数。\"\nend\n\nunless
       prints.include? \"512\"\n  return \"貌似你没有向控制台打印8 ** 3的值。\"\nend\n\nreturn true"
     updated_at: 2012-09-27 22:23:39.000000000 Z
     view: console_and_editor
@@ -237,17 +240,17 @@ sections:
     created_at: 2012-09-25 00:13:47.000000000 Z
     default_code: ! "def what_up(greeting, *bros)\n  bros.each { |bro| puts \"#{greeting}，
       #{bro}？\" }\nend\n \nwhat_up(\"别来无恙啊\", \"张三\", \"李四\", \"王五\")"
-    entry: ! "俗话说世事难料：你的方法不仅无法事先知道会获得什么样的实际参数，
-      甚至有时候连实际参数 **有多少个** 也不知道。\n\n
-      比方说你有一个`friend`方法，使用`puts`将用户传入的实际参数输出。
+    entry: ! "俗话说世事难料：你的方法不仅无法事先知道会获得什么样的参数，
+      甚至有时候连参数 **有多少个** 也不知道。\n\n
+      比方说你有一个`friend`方法，使用`puts`将用户传入的参数输出。
       它可能是这样的：\n\n
       def friend(name):\n
         puts \"我的朋友是\" + name + \"。\"\n
       end\n\n
       如果只有一个朋友的话，这个方法是很好的。但是假如你想打印出 **多个** 朋友，
       而且事先还不知道用户会输入多少个朋友的名字，那该怎么办呢？\n\n
-      解决办法是： **可变参数** 。可变参数就是实际参数前面加一个`*`，告诉Ruby说：
-      “Ruby你好，我不知道到时候会有 **多少个** 实际参数，不过很可能不止一个。”"
+      解决办法是： **可变参数** 。可变参数就是在定义方法时在形式参数前面加一个`*`，告诉Ruby说：
+      “Ruby你好，我不知道在调用你的时候会有 **多少个** 实际参数传递给你，不过很可能不止一个。”"
     expect_error: false
     feedback_stats:
       instructional_text_issue: 3
@@ -293,7 +296,7 @@ sections:
       total: 1
     from_console: false
     hint: ! "记住，你应该这样定义一个方法：\n\n
-      def method_name(形式参数)\n
+      def method_name(可选参数)\n
         # 要做的事！\n
         # 可能要返回一个值\n
       end"
@@ -306,7 +309,8 @@ sections:
     solution_entry: ''
     tabs: []
     test_functions: ! "begin\n  add(1,1)\nrescue NameError\n  return \"你定义了一个名叫add的方法吗？\"\n
-      rescue ArgumentError\n  return \"确保你的add方法接受两个实际参数。\"\nend\n\nif exception.kind_of? SyntaxError\n
+      rescue ArgumentError\n  return \"确保你的add方法接受两个参数。\"
+      \nend\n\nif exception.kind_of? SyntaxError\n
       \ return \"你的语法貌似不大正确。如需帮助可查看提示。\"\nend\n\noxnard = (1..100).to_a\nmontalvo = (101..200).to_a\n\nfor
       a in oxnard\n  for b in montalvo\n    if add(a,b) != a + b\n      return \"似乎你的add方法并不是返回两个数字的和。\"\n
       \   end\n  end\nend\n\nreturn true"
@@ -327,16 +331,16 @@ sections:
       instructional_text_issue: 1
     from_console: false
     hint: ! "方法的语法是这样的：\n\n
-    def method_name(形式参数)\n
+    def method_name(可选参数)\n
       \     # Do something!\n
     end"
     instruction: ! '在编辑器中定义两个方法：
 
 
-      1. `greeter`方法，接受一个代表人名的字符串作为形式参数`name`，然后返回向这个人问候的字符串。
+      1. `greeter`方法，接受一个代表人名的字符串作为参数`name`，然后返回向这个人问候的字符串。
       （确保使用`return`，而不要使用`print`或者`puts`。）
 
-      2. `by_three?`方法，接受一个整数形式参数`number`，如果该整数能被3整除，则返回`true`，否则返回`false`。
+      2. `by_three?`方法，接受一个整数参数`number`，如果该整数能被3整除，则返回`true`，否则返回`false`。
       记住，如果方法的返回类型是布尔型，那么方法名应以问号结束，这是Ruby最佳实践。'
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
@@ -699,7 +703,7 @@ sections:
       total: 2
       positive_feedback: 1
     from_console: false
-    hint: ! "别忘了方法的语法：\n\n    def method_name(形式参数)\n
+    hint: ! "别忘了方法的语法：\n\n    def method_name(可选参数)\n
       \     # Do something\n    end"
     instruction: 创建一个名为`welcome`的方法，使用`puts`向控制台输出"欢迎来到Ruby的世界！"。然后调用它。
     library:
