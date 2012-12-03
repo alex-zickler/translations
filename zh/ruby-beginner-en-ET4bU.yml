@@ -505,8 +505,7 @@ sections:
 - !ruby/hash:Moped::BSON::Document
   created_at: 2012-09-25 00:16:06.000000000 Z
   default_view: console_and_editor
-  entry: Now that we know more about blocks, we can use them to quickly and easily
-    sort large amounts if information in our programs.
+  entry: 既然我们对块有了进一步的了解，我们可以快速而简便地使用块来对程序中的大量信息进行排序。
   exercises:
   - _id: !ruby/object:Moped::BSON::ObjectId
       raw_data: !binary |-
@@ -515,39 +514,33 @@ sections:
     default_code: ! 'my_array = [3, 4, 8, 7, 1, 6, 5, 9, 2]
 
 
-      # Call the sort! method on my_array below.
+      # 调用上面my_array数组的sort!方法。
 
-      # my_array should then equal [1, 2, 3, 4, 5, 6, 7, 8, 9].
+      # 然后my_array数组就会变成[1, 2, 3, 4, 5, 6, 7, 8, 9]。
 
 
 '
-    entry: ! 'Sorting arrays is a very common problem in computer science, and is
-      well studied for that reason. There are many **algorithms**—well-defined sequences
-      of steps—each with its own trade-offs and advantages.
+    entry: ! '数组排序是计算机科学的一个非常常见的问题，因此被广泛研究。已经有很多的 **算法**
+      ——定义明确的一系列步骤——每种算法都有其各自的侧重点和优势。
 
 
-      Sorting algorithms can be a great introduction to computer science as a theoretical
-      discipline, but for now we''ll focus on how to use Ruby''s built-in sorting
-      library (which implements a few of these algorithms).'
+      排序算法可作为计算机科学理论学习的一个很好的起步，不过现在我们要重点关注如何使用Ruby的内建排序方法库（其中实现了一些排序算法）。'
     expect_error: false
     feedback_stats:
       other: 1
       total: 1
     from_console: false
-    hint: ! '`.sort` would sort a copy of `my_array`, while `.sort!` sorts `my_array`
-      in-place (that is, it destroys the original array and replaces it with the sorted
-      version).'
-    instruction: Use the `.sort!` method to sort the values in `my_array`. Magic,
-      isn't it?
+    hint: ! '`.sort`方法对`my_array`的副本排序，而`.sort!`方法则对`my_array`本身排序
+      （也就是说，它会破坏原有数组的数据，取而代之的是排序后的数据）。'
+    instruction: 使用`.sort!`方法对`my_array`排序。很神奇吧？
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Introduction to Sorting
+    name: 排序入门
     tabs: []
-    test_functions: ! "if code.scan(\".sort!\").length == 0\n  return \"Make sure
-      to call .sort! on my_array.\"\nend\n\nunless my_array == (1..9).to_a\n  return
-      \"It looks like you didn't sort my_array. Did you remember to use .sort! instead
-      of .sort ?\"\nend\n\nreturn true"
+    test_functions: ! "if code.scan(\".sort!\").length == 0\n  return \"确保对my_array调用了.sort!方法。
+      \"\nend\n\nunless my_array == (1..9).to_a\n  return
+      \"貌似你没有对my_array排序。请记住要使用.sort!方法，而不是.sort方法。\"\nend\n\nreturn true"
     updated_at: 2012-10-10 08:08:07.633000000 Z
     view: console_and_editor
   - _id: !ruby/object:Moped::BSON::ObjectId
