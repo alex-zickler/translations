@@ -753,26 +753,25 @@ sections:
 
 
       my_array.each '
-    entry: Let's go over what we learned about blocks.
+    entry: 让我们复习一下学过的关于块的内容。
     expect_error: false
     feedback_stats:
       positive_feedback: 1
       total: 1
     from_console: false
-    hint: ! "Remember, block syntax looks like this:\n\n    object.method { |placeholder|
+    hint: ! "记住，块的语法是这个样子的：\n\n    object.method { |placeholder|
       action }"
-    instruction: Add a block after the `each` method that squares each element in
-      the array and `puts` it to the console.
+    instruction: 在`each`方法后面添加一个块，这个块对数组的每个项求平方并使用`puts`向控制台打印结果。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Blocks
+    name: 块
     tabs: []
-    test_functions: ! "if exception.kind_of? SyntaxError\n  return \"It looks like
-      your syntax isn't quite right. Check the Hint if you need help!\"\nend\n\nfor
-      num in [1, 4, 9, 16, 25]\n  unless prints.include? num.to_s\n    return \"It
-      looks like your block doesn't print the square of each number in my_array to
-      the console using 'puts'.\"\n  end\nend\n\nreturn true"
+    test_functions: ! "if exception.kind_of? SyntaxError\n  return \"你的语法貌似不大正确。
+      如需帮助可查看提示！\"\nend\n\nfor
+      num in [1, 4, 9, 16, 25]\n  unless prints.include? num.to_s\n    return \"
+      貌似你的块并不使用'puts'向控制台打印my_array数组中每个数的平方。
+      \"\n  end\nend\n\nreturn true"
     updated_at: 2012-10-03 20:43:09.000000000 Z
     view: console_and_editor
   - _id: !ruby/object:Moped::BSON::ObjectId
