@@ -594,34 +594,30 @@ sections:
 
 
 '
-    entry: ! 'We can also use a new operator called the **combined comparison operator**
-      to compare two Ruby objects. The combined comparison operator looks like this:
-      `<=>`. It returns 0 if the first **operand** (item to be compared) equals the
-      second, 1 if first operand is *greater* than the second, and -1 if the first
-      operand is *less* than the second.
+    entry: ! '我们也可以用一个新的操作符来比较两个Ruby对象，这个操作符叫做 **通用比较操作符** `<=>`。
+      如果第一个 **操作数** （待比较的项）等于第二个，它返回0；
+      如果第一个操作数 *大于* 第二个，它返回1；
+      如果第一个操作数 *小于* 第二个，它返回-1。
 
 
-      A block that is passed into the `sort` method must return either 1, 0, -1. It
-      should return -1 if the first block parameter should come *before* the second,
-      1 if vice versa, and 0 if they are of equal weight, meaning one does not come
-      before the other (*i.e.* if two values are equal).'
+      传入`sort`方法的块必须返回1、0或者-1。如果块的第一个参数应该在第二个的 *前面* ，则返回-1；
+      反之则返回1；如果两者具有相同权重（即两者的值相同），则返回0，意味着它们所处位置相同。'
     expect_error: false
     feedback_stats:
       typo: 1
       total: 1
     from_console: false
     hint: ''
-    instruction: Use the combined comparison operator to compare `book_1` to `book_2`
-      (in that order). Before you click Run, what do you think the result will be?
+    instruction: 使用通用比较操作符比较`book_1`和`book_2`（`book_1`放在左边，`book_2`放在右边）。
+      在单击Run之前想一想，运行结果会是什么？
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: The Combined Comparison Operator
+    name: 通用比较操作符
     tabs: []
-    test_functions: ! "if code.scan(\"<=>\").length == 0\n  return \"Don't forget
-      to use the combined comparison operator in your code.\"\nend\n\nunless result
-      == 1\n  return \"It looks like your comparison doesn't return the correct value
-      (1). Did you remember to compare book_1 <=> book_2 (in that order)?\"\nend\n\nreturn
+    test_functions: ! "if code.scan(\"<=>\").length == 0\n  return \"别忘了在你的代码中使用通用比较操作符。
+      \"\nend\n\nunless result
+      == 1\n  return \"貌似你的比较结果不是返回正确的数值（1）。你是使用book_1 <=> book_2来比较吗？\"\nend\n\nreturn
       true"
     updated_at: 2012-10-25 01:05:41.351000000 Z
     view: console_and_editor
