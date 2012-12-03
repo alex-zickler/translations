@@ -685,33 +685,31 @@ sections:
 - !ruby/hash:Moped::BSON::Document
   created_at: 2012-09-25 00:17:50.000000000 Z
   default_view: console_and_editor
-  entry: We covered a lot in this lesson! Let's do a little review.
+  entry: 我们这一课学了很多内容，让我们复习一下吧。
   exercises:
   - _id: !ruby/object:Moped::BSON::ObjectId
       raw_data: !binary |-
         UGD4MFbKXQACADAW
     created_at: 2012-09-25 00:17:52.000000000 Z
     default_code: ''
-    entry: Let's quickly review how to create a basic Ruby method.
+    entry: 让我们快速温习一下如何创建基本的Ruby方法。
     expect_error: false
     feedback_stats:
       correctness_test_issue: 1
       total: 2
       positive_feedback: 1
     from_console: false
-    hint: ! "Don't forget your method syntax:\n\n    def method_name(optional arguments)\n
+    hint: ! "别忘了方法的语法：\n\n    def method_name(形式参数)\n
       \     # Do something\n    end"
-    instruction: Create a method, `welcome`, that `puts` "Welcome to Ruby!" After
-      defining your method, call it.
+    instruction: 创建一个名为`welcome`的方法，使用`puts`向控制台输出"Welcome to Ruby!"。然后调用它。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
-    name: Basic Methods
+    name: 基本方法
     tabs: []
-    test_functions: ! "begin\n  welcome\nrescue NameError\n  return \"Did you define
-      a method called welcome?\"\nend\n\nif prints.length == 0\n  return \"It looks
-      like you didn't print anything to the console with 'puts'. Did you remember
-      to call your method?\"\nend\n\nreturn true"
+    test_functions: ! "begin\n  welcome\nrescue NameError\n  return \"你定义了名为welcome的方法吗？
+      \"\nend\n\nif prints.length == 0\n  return \"貌似你没有使用'puts'向控制台打印任何东西。你是不是忘记调用你的方法了？
+      \"\nend\n\nreturn true"
     updated_at: 2012-10-03 20:43:28.000000000 Z
     view: console_and_editor
   - _id: !ruby/object:Moped::BSON::ObjectId
