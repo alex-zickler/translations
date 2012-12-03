@@ -701,7 +701,7 @@ sections:
     from_console: false
     hint: ! "别忘了方法的语法：\n\n    def method_name(形式参数)\n
       \     # Do something\n    end"
-    instruction: 创建一个名为`welcome`的方法，使用`puts`向控制台输出"Welcome to Ruby!"。然后调用它。
+    instruction: 创建一个名为`welcome`的方法，使用`puts`向控制台输出"欢迎来到Ruby的世界！"。然后调用它。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: false
@@ -717,33 +717,32 @@ sections:
         UGD4MwP1pwACADY9
     created_at: 2012-09-25 00:17:55.000000000 Z
     default_code: ''
-    entry: Good! Now let's make our method a bit more complex by adding arguments
-      and a `return` statement.
+    entry: 非常好！现在，让我们把方法写得复杂一些，加入参数和`return`语句。
     expect_error: false
     feedback_stats:
       correctness_test_issue: 1
       total: 2
       positive_feedback: 1
     from_console: false
-    hint: ! "Your method should return something like\n\n    \"Welcome to Ruby, #{name}!\""
-    instruction: Make your `welcome` method accept a single string parameter, `name`.
-      Remove your `puts` statement and replace it with a `return` statement. Your
-      method should return a string containing the name it was passed as a parameter.
+    hint: ! "你的方法应该返回类似这样的内容：\n\n    \"欢迎来到Ruby的世界，#{name}！\""
+    instruction: 让你的`welcome`方法接受一个字符串参数`name`。
+      去掉`puts`语句，换成一个`return`语句。
+      你的方法应该返回一个字符串，该字符串包含传入的参数值。
     library:
     - https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     load_submission_from_previous_exercise: true
-    name: Methods With Arguments
+    name: 带参数的方法
     tabs: []
-    test_functions: ! "begin\n  welcome(\"Eric\")\nrescue NameError\n  return \"Did
-      you define a method called welcome?\"\nrescue ArgumentError\n  return \"Make
-      sure your method takes a single parameter.\"\nend\n\nif exception.kind_of? ArgumentError\n
-      \ return \"Make sure you pass your method a single string parameter when you
-      call it.\"\nend\n\neric = welcome(\"Eric\")\n\nif eric == nil\n  return \"Make
-      sure your method has a return statement.\"\nelsif !eric.include? \"Eric\"\n
-      \ return \"It looks like your welcome method doesn't include the person's name
-      in its output.\"\nend\n\nif code.scan(\"print\").length > 0 || code.scan(\"puts\").length
-      > 0\n  return \"It looks like your welcome method prints to the console instead
-      of using return.\"\nend\n\nreturn true"
+    test_functions: ! "begin\n  welcome(\"Eric\")\nrescue NameError\n  return \"
+      你定义了名为welcome的方法吗？\"\nrescue ArgumentError\n  return \"
+      确保你的方法接受一个参数。\"\nend\n\nif exception.kind_of? ArgumentError\n
+      \ return \"确保你调用你的方法时向它传入了一个字符串参数。
+      \"\nend\n\neric = welcome(\"Eric\")\n\nif eric == nil\n  return \"
+      确保你的方法有一个return语句。\"\nelsif !eric.include? \"Eric\"\n
+      \ return \"貌似你的welcome方法的返回值中并没有包含输入的字符串。
+      \"\nend\n\nif code.scan(\"print\").length > 0 || code.scan(\"puts\").length
+      > 0\n  return \"貌似你的welcome方法将输出打印到了控制台，
+      而不是使用return将其返回。\"\nend\n\nreturn true"
     updated_at: 2012-10-03 20:43:19.000000000 Z
     view: console_and_editor
   - _id: !ruby/object:Moped::BSON::ObjectId
