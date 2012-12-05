@@ -16,7 +16,7 @@ Translations
 * File: web-beginner-en-LceTK.yml
 * Started: 04.12.12
 * Finished: 
-* Contact: oleksandr.yavlinskyy@gmail.com
+* Contact: oleksandr.yavlinskyy@gmail.COM
 
  
 
